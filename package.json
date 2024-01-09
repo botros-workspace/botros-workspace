@@ -9,16 +9,49 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@gsap/react": "^2.0.2",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@motionone/utils": "^10.16.3",
+    "@react-spring/parallax": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
+    "@types/gsap": "^3.0.0",
+    "framer-motion": "^10.16.4",
+    "gsap": "^3.12.4",
+    "gsap-trial": "^3.12.4",
+    "i18next": "^23.7.6",
+    "lottie-react": "^2.4.0",
+    "next": "latest",
+    "next-i18next": "^15.0.0",
     "react": "latest",
     "react-dom": "latest",
-    "next": "latest"
+    "react-gsap": "^3.2.1",
+    "react-i18next": "^13.5.0",
+    "react-icons": "^4.11.0",
+    "react-intersection-observer": "^9.5.2",
+    "react-intl": "^6.5.5",
+    "react-lottie": "1.2.3",
+    "react-scripts": "latest",
+    "react-scroll": "^1.8.9",
+    "react-scrollmagic": "^2.3.0",
+    "react-text-transition": "^3.1.0",
+    "split-type": "^0.3.4",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/react": "latest",
     "@types/node": "latest",
+    "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-scroll": "^1.8.8",
     "eslint": "latest",
-    "eslint-config-next": "latest"
+    "eslint-config-next": "latest",
+    "typescript": "latest"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

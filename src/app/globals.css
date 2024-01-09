@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace, 'Denk One';
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -79,7 +80,12 @@
   margin: 0;
 }
 
-html,
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: 'smooth';
+  scroll-snap-stop: 'always';
+}
+
 body {
   max-width: 100vw;
   overflow-x: hidden;
@@ -104,4 +110,233 @@ a {
   html {
     color-scheme: dark;
   }
+}
+@keyframes bounce {
+  60% {
+    transform: translateY(-8px);
+  }
+  65% {
+    transform: translateY(-7px);
+  }
+  70% {
+    transform: translateY(-6px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  80% {
+    transform: translateY(-4px);
+  }
+  85% {
+    transform: translateY(-3px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+  95% {
+    transform: translateY(-1px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(50%) skewY(10deg) skewX(10deg) rotateZ(30deg);
+    filter: blur(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%) skewY(0deg) skewX(0deg) rotateZ(0deg);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+.custom-cursor {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+  mix-blend-mode: screen; /* Add a glow effect using mix-blend-mode */
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.01s ease-in-out;
+  filter: blur(50px);
+  opacity: 0.1;
+}
+@keyframes appearAndSlideUp {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes appearAndSlideDown {
+  from {
+    transform: translateY(-100%) skewY(10deg) skewX(10deg) rotateZ(30deg);
+    filter: blur(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%) skewY(0deg) skewX(0deg) rotateZ(0deg);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.reflection-container {
+  position: relative;
+  width: 300px; /* Adjust the width of the container */
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-image,
+.reflection-image {
+  opacity: 0.6; /* Adjust the opacity of the reflection */
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  top: 35vh;
+  height: 600px;
+  transform: translateY(40%) rotateZ(180deg);
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgb(255, 255, 255, 0.1);
+  transform-origin: 0%;
+}
+.splash {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  clip-path: path(
+    'M 0 303.5 C 0 292.454 8.995 285.101 20 283.5 L 460 219.5 C 470.085 218.033 480 228.454 480 239.5 L 500 430 C 500 441.046 491.046 450 480 450 L 20 450 C 8.954 450 0 441.046 0 430 Z'
+  );
+}
+.card {
+  font-size: 164px;
+  width: 300px;
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 1px hsl(0deg 0% 0% / 0.075), 0 0 2px hsl(0deg 0% 0% / 0.075),
+    0 0 4px hsl(0deg 0% 0% / 0.075), 0 0 8px hsl(0deg 0% 0% / 0.075),
+    0 0 16px hsl(0deg 0% 0% / 0.075);
+  transform-origin: 10% 60%;
+}
+.card-container {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: -120px;
+}
+
+@keyframes lampOn {
+  from {
+    transform: scale(1) translateY(0%) translateX(0%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1) translateY(-50%) translateX(-40%) rotate(-180deg);
+    opacity: 1;
+  }
+}
+@keyframes lampOff {
+  from {
+    transform: scale(1) translateY(-50%) translateX(-40%) rotate(-180deg);
+    opacity: 0;
+    filter: blur(4px);
+  }
+
+  50% {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1) translateY(0%) translateX(0%) rotate(0deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.container {
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+
+  /* Customize the scroll transition */
+  transition-property: transform;
+  transition-duration: 2s; /* Adjust the duration as needed */
+  transition-timing-function: ease-in-out; /* Customize the easing function */
+}
+
+.scroll-div {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: #e0e0e0; /* Change the background color as needed */
+  color: #333; /* Change the text color as needed */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.scroll-div:nth-child(odd) {
+  background-color: #ff5722; /* Change the background color as needed for odd divs */
+  color: #fff; /* Change the text color as needed for odd divs */
+}
+
+.parallax-container {
+  display: flex;
+  overflow-x: visible;
+}
+
+.parallax-item {
+  width: 50%; /* Adjust the width as needed */
 }
