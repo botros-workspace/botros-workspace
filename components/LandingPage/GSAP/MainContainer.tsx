@@ -302,7 +302,13 @@ const MainContainer: FunctionComponent = () => {
     })
 
     return () => context.revert()
-  }, [])
+  }, [
+    currentSection,
+    setContainerToFirstSection,
+    setContainerToSecondSection,
+    setContainerToThirdSection,
+    setContainerToFourthSection,
+  ])
   const goRight = useCallback(() => {
     setIsNavigating(true)
     const context = gsap.context(() => {
@@ -356,7 +362,13 @@ const MainContainer: FunctionComponent = () => {
     })
 
     return () => context.revert()
-  }, [])
+  }, [
+    currentSection,
+    setContainerToFirstSection,
+    setContainerToSecondSection,
+    setContainerToThirdSection,
+    setContainerToFourthSection,
+  ])
 
   useEffect(() => {
     if (selectedSection === SectionsTypes.FIRST_SECTIONS) {
