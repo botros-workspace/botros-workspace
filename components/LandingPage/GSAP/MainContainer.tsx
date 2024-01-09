@@ -249,7 +249,7 @@ const MainContainer: FunctionComponent = () => {
     })
     return () => context.revert()
   }, [])
-  const goLeft = () => {
+  const goLeft = useCallback(() => {
     setIsNavigating(true)
     const context = gsap.context(() => {
       const tl = timelineRef.current
@@ -302,8 +302,8 @@ const MainContainer: FunctionComponent = () => {
     })
 
     return () => context.revert()
-  }
-  const goRight = () => {
+  }, [])
+  const goRight = useCallback(() => {
     setIsNavigating(true)
     const context = gsap.context(() => {
       const tl = timelineRef.current
@@ -356,7 +356,7 @@ const MainContainer: FunctionComponent = () => {
     })
 
     return () => context.revert()
-  }
+  }, [])
 
   useEffect(() => {
     if (selectedSection === SectionsTypes.FIRST_SECTIONS) {
@@ -650,7 +650,7 @@ const MainContainer: FunctionComponent = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
     }
-  }, [isNavigating, selectedSection])
+  }, [isNavigating, selectedSection, goLeft, goRight])
   return (
     <Box overflow='hidden' bg={'#121212'} h={'100%'}>
       {selectedSection === SectionsTypes.FIRST_SECTIONS && (
@@ -784,8 +784,8 @@ const MainContainer: FunctionComponent = () => {
           letterSpacing={'widest'}
         >
           {currentTitle.split('').map((letter, index) => (
-            <span>
-              <div key={index} className='charRef' style={{ opacity: 1 }}>
+            <span key={index}>
+              <div className='charRef' style={{ opacity: 1 }}>
                 {letter}
               </div>
             </span>

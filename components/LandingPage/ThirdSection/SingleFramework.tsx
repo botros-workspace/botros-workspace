@@ -17,6 +17,7 @@ const SingleFramework: FunctionComponent<Props> = ({ image, title }) => {
       <Box h={{ base: 10, md: 20, xl: 32 }} w={'100%'}>
         <Center>
           <Image
+            alt='framework'
             src={image}
             h={{ base: 10, md: 20, lg: 16, xl: 28 }}
             w={'100%'}

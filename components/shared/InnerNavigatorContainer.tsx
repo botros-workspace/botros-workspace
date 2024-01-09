@@ -46,7 +46,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
       })
       return () => context.revert()
     }
-  }, [])
+  }, [containerRef, handleContainerChangeFromInside, nextSection])
   const handlePreviousSectionPress = useCallback(() => {
     if (previousSection) {
       const context = gsap.context(() => {
@@ -65,7 +65,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
       })
       return () => context.revert()
     }
-  }, [])
+  }, [containerRef, handleContainerChangeFromInside, previousSection])
   useEffect(() => {
     const context = gsap.context(() => {
       const tl = timelineRef.current
@@ -96,7 +96,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
       )
     })
     return () => context.revert()
-  }, [])
+  }, [delay])
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (canNavigate) {
@@ -113,7 +113,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
     return () => {
       document.removeEventListener('keydown', handleKeyPress)
     }
-  }, [canNavigate])
+  }, [canNavigate, handleNextSectionPress, handlePreviousSectionPress])
   return (
     <>
       {nextSection && (
