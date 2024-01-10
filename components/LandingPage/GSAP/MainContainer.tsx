@@ -90,6 +90,7 @@ const MainContainer: FunctionComponent = () => {
         transform: 'scale(1)',
         opacity: 1,
         duration: 0.5,
+        delay: 0.01,
         ease: 'expo.inOut',
       }).to(
         titleRef.current,

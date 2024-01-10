@@ -43,7 +43,6 @@ const UpperNavigator: FunctionComponent<Props> = ({
   const handleNavigatorPress = (value: SectionsTypes) => {
     if (selectedSection !== SectionsTypes.NONE && selectedSection !== null) {
       if (currentSection === SectionsTypes.FIRST_SECTIONS) {
-        console.log('Pressed')
         const context = gsap.context(() => {
           const tl = timelineRef.current
 
@@ -86,7 +85,6 @@ const UpperNavigator: FunctionComponent<Props> = ({
             ease: 'expo.inOut',
             onComplete: () => {
               handleContainerChangeFromInside(value)
-              console.log('first change')
             },
           })
         })
