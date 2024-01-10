@@ -21,7 +21,7 @@ const IntroLoader: FunctionComponent<Props> = ({ timeline }) => {
       })
       .to([upperCoverRef.current, lowerCoverRef.current], {
         height: '50%',
-        duration: 1,
+        duration: 0.6,
         ease: 'expo.inOut',
       })
   }, [timeline])

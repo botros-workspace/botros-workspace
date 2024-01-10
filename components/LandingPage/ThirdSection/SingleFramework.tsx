@@ -14,12 +14,12 @@ const SingleFramework: FunctionComponent<Props> = ({ image, title }) => {
       gap={4}
       h={{ base: 16, xl: 32 }}
     >
-      <Box h={{ base: 10, md: 20, xl: 32 }} w={'100%'}>
+      <Box h={{ base: 16, md: 20, xl: 32 }} w={'100%'}>
         <Center>
           <Image
             alt='framework'
             src={image}
-            h={{ base: 10, md: 20, lg: 16, xl: 28 }}
+            h={{ base: 14, md: 20, lg: 16, xl: 28 }}
             w={'100%'}
           />
         </Center>

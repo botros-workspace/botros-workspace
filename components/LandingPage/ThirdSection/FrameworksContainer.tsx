@@ -55,7 +55,7 @@ const FrameworksContainer: FunctionComponent<Props> = ({
   }, [setSelectedIndex])
   return (
     <Element name='frameworksComponent'>
-      <Box w={{ base: '96%', sm: '80%', lg: '90%' }} ref={containerRef}>
+      <Box w={{ base: '100%', sm: '80%', lg: '90%' }} ref={containerRef}>
         <Show below='lg'>
           <Text
             fontSize={20}
@@ -73,7 +73,7 @@ const FrameworksContainer: FunctionComponent<Props> = ({
           flexGrow={1}
           gap={16}
           justifyContent={'center'}
-          p={{ base: 5, md: 12, lg: 8 }}
+          p={{ base: 0, md: 0, lg: 8 }}
         >
           {frameworksArray.map((framework, index) => {
             return (

@@ -11,7 +11,6 @@ import { gsap } from 'gsap'
 import AboutMeMainContainer from '../ThirdSection/AboutMeMainContainer'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
-
 import SkillsMainContainer from '../SecondSection'
 import HeroContainer from '../FirstSection/HeroContainer'
 import UpperNavigator from './UpperNavigator'
@@ -452,7 +451,7 @@ const MainContainer: FunctionComponent = () => {
       tl.to([lowerBorderRef.current, upperBorderRef.current], {
         scaleX: 1,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'expo.inOut',
       })
         .to(

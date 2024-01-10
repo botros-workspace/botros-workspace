@@ -114,8 +114,8 @@ const TitleContainer: FunctionComponent = () => {
         <Box w={'95%'}>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              HTML, CSS, JS, building small and medium web applications with Vue
-              or React,
+              Specialized in building customized complex web applications with
+              React, Typescript,
             </Box>
           </Box>
           <Box overflow={'hidden'}>
@@ -126,12 +126,12 @@ const TitleContainer: FunctionComponent = () => {
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              I have also full-stackdeveloper experience with one of the most
+              I have also full-stackdeveloper experience with one of the
             </Box>
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              popular open source CMS on the web - WordPress
+              most reliable Framework - Python Django Api
             </Box>
           </Box>
           <Box
