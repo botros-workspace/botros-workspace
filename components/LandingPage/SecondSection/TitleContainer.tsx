@@ -131,7 +131,7 @@ const TitleContainer: FunctionComponent = () => {
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              most reliable Framework - Python Django Api
+              most reliable Framework - Python Django API
             </Box>
           </Box>
           <Box

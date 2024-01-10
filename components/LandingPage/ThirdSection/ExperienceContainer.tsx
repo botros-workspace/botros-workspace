@@ -26,7 +26,7 @@ const ExperienceContainer: FunctionComponent<Props> = ({
     },
     {
       date: 'APR-NOV 2022',
-      title: 'Junior React Electron Developer @ Rise',
+      title: 'React Electron Developer @ Rise',
       description:
         'I worked on different projects using different programming languages and frameworks, alone and in teams, in which I have learned how to collaborate on code, be consistent in my style of coding and how to maintain a code base of a project.',
       skills: ['React', 'ReactNative', 'Javascript', 'Typescript', 'Electron'],
