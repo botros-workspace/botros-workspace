@@ -3,6 +3,7 @@ import React, { FunctionComponent, useEffect, useRef } from 'react'
 import { Element } from 'react-scroll'
 import { AboutMeIndexTypes } from '../../../shared/enums/about-me-index-types.enum'
 import SingleFramework from './SingleFramework'
+import ReactSVG from '../../../public/skills/ReactLogo'
 
 type Props = {
   setSelectedIndex: (value: AboutMeIndexTypes) => void
@@ -15,15 +16,15 @@ const FrameworksContainer: FunctionComponent<Props> = ({
   const frameworksArray = [
     {
       title: 'REACTJS',
-      image: './react.png',
+      svg: <ReactSVG />,
     },
     {
       title: 'REACT NATIVE',
-      image: './react.png',
+      svg: <ReactSVG />,
     },
     {
       title: 'ELECTRON',
-      image: './react.png',
+      svg: <ReactSVG />,
     },
     {
       title: 'NEXTJS',
@@ -79,6 +80,7 @@ const FrameworksContainer: FunctionComponent<Props> = ({
             return (
               <SingleFramework
                 image={framework.image}
+                svg={framework.svg}
                 title={framework.title}
                 key={index}
               />

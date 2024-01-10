@@ -2,10 +2,11 @@ import { Flex, Box, Image, Text, Center } from '@chakra-ui/react'
 import React, { FunctionComponent } from 'react'
 
 type Props = {
-  image: string
+  image?: string
+  svg?: React.JSX.Element
   title: string
 }
-const SingleFramework: FunctionComponent<Props> = ({ image, title }) => {
+const SingleFramework: FunctionComponent<Props> = ({ image, title, svg }) => {
   return (
     <Flex
       w={{ base: 16, md: 24, lg: 20, xl: 32 }}
@@ -16,12 +17,19 @@ const SingleFramework: FunctionComponent<Props> = ({ image, title }) => {
     >
       <Box h={{ base: 16, md: 20, xl: 32 }} w={'100%'}>
         <Center>
-          <Image
-            alt='framework'
-            src={image}
-            h={{ base: 14, md: 20, lg: 16, xl: 28 }}
-            w={'100%'}
-          />
+          {image && (
+            <Image
+              alt='framework'
+              src={image}
+              h={{ base: 14, md: 20, lg: 16, xl: 28 }}
+              w={'100%'}
+            />
+          )}
+          {svg && (
+            <Box as='svg' h={'50%'} w={'100%'} m={'auto'} viewBox='0 0 130 130'>
+              {svg}
+            </Box>
+          )}
         </Center>
       </Box>
       <Text
