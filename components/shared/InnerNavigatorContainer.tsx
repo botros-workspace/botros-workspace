@@ -34,7 +34,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
         const tl = timelineRef.current
 
         tl.to(containerRef.current, {
-          transform: 'translateX(500%) scale(0)',
+          transform: 'translateX(-500%) scale(0)',
           opacity: 0,
           background: '#121212',
           duration: 1,
@@ -53,7 +53,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
         const tl = timelineRef.current
 
         tl.to(containerRef.current, {
-          transform: 'translateX(-500%) scale(0)',
+          transform: 'translateX(500%) scale(0)',
           background: '#121212',
           opacity: 0,
           duration: 1,

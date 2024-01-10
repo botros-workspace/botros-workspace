@@ -1,5 +1,5 @@
 import { Box, Image } from '@chakra-ui/react'
-import React, { FunctionComponent, useEffect, useRef } from 'react'
+import React, { FunctionComponent, LegacyRef, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
 import InnerNavigatorContainer from '../../shared/InnerNavigatorContainer'
@@ -8,11 +8,12 @@ import RightCardContainer from './RightCardContainer'
 
 type Props = {
   handleContainerChangeFromInside: (value: SectionsTypes) => void
+  containerRef: LegacyRef<HTMLDivElement>
 }
 const ContactMeMainContainer: FunctionComponent<Props> = ({
   handleContainerChangeFromInside,
+  containerRef,
 }) => {
-  const mainContainerRef = useRef<HTMLDivElement | null>(null)
   const leftcardContainerRef = useRef(null)
   const rightcardContainerRef = useRef(null)
   const timelineRef = useRef(gsap.timeline())
@@ -320,10 +321,10 @@ const ContactMeMainContainer: FunctionComponent<Props> = ({
       h={'100vh'}
       maxH={'100vh'}
       w={'100vw'}
-      ref={mainContainerRef}
+      ref={containerRef}
     >
       <InnerNavigatorContainer
-        containerRef={mainContainerRef}
+        containerRef={containerRef}
         handleContainerChangeFromInside={handleContainerChangeFromInside}
         previousSection={SectionsTypes.THIRD_SECTIONS}
         delay={2.4}

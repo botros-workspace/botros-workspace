@@ -1,9 +1,9 @@
 import { Flex, Box, Image } from '@chakra-ui/react'
 import React, {
   FunctionComponent,
+  LegacyRef,
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from 'react'
 import CustomCursor from '../../shared/CustomCursor'
@@ -13,23 +13,20 @@ import { AboutMeIndexTypes } from '../../../shared/enums/about-me-index-types.en
 import { scroller } from 'react-scroll'
 import LightSwitcherContainer from './LightSwitcherContainer'
 import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
-import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi'
-import { gsap } from 'gsap'
 import InnerNavigatorContainer from '../../shared/InnerNavigatorContainer'
 
 type Props = {
   handleContainerChangeFromInside: (value: SectionsTypes) => void
+  containerRef: LegacyRef<HTMLDivElement>
 }
 const AboutMeMainContainer: FunctionComponent<Props> = ({
   handleContainerChangeFromInside,
+  containerRef,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<AboutMeIndexTypes>()
   const [isLightOn, setIsLightOn] = useState(false)
   const [didMount, setDidMount] = useState(false)
   const [coverHeight, setCoverHeight] = useState(0)
-  const mainContainerRef = useRef(null)
-
-  const timelineRef = useRef(gsap.timeline())
 
   const scrollToAboutMe = useCallback(() => {
     if (selectedIndex !== AboutMeIndexTypes.ABOUT_ME) {
@@ -120,10 +117,10 @@ const AboutMeMainContainer: FunctionComponent<Props> = ({
     }
   }, [])
   return (
-    <Box bg={'#121212'} ref={mainContainerRef}>
+    <Box bg={'#121212'} ref={containerRef}>
       <Box bg={'#121212'} pos={'fixed'} h={'100%'} w={'100%'} />
       <InnerNavigatorContainer
-        containerRef={mainContainerRef}
+        containerRef={containerRef}
         handleContainerChangeFromInside={handleContainerChangeFromInside}
         nextSection={SectionsTypes.FOURTH_SECTIONS}
         previousSection={SectionsTypes.SECOND_SECTIONS}

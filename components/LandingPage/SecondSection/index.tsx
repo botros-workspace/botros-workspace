@@ -1,5 +1,6 @@
 import React, {
   FunctionComponent,
+  LegacyRef,
   useCallback,
   useEffect,
   useRef,
@@ -14,12 +15,13 @@ import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi'
 import InnerNavigatorContainer from '../../shared/InnerNavigatorContainer'
 type Props = {
   handleContainerChangeFromInside: (value: SectionsTypes) => void
+  containerRef: LegacyRef<HTMLDivElement>
 }
 const SkillsMainContainer: FunctionComponent<Props> = ({
   handleContainerChangeFromInside,
+  containerRef,
 }) => {
   const backgroundRef = useRef<any>([])
-  const mainContainerRef = useRef(null)
   const timelineRef = useRef(gsap.timeline())
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const SkillsMainContainer: FunctionComponent<Props> = ({
       overflow={'hidden'}
       bg={'#121212'}
     >
-      <Box w={'100%'} h={'100%'} ref={mainContainerRef}>
+      <Box w={'100%'} h={'100%'} ref={containerRef}>
         <TitleContainer />
         <SkillsGallery />
         <Image
@@ -59,7 +61,7 @@ const SkillsMainContainer: FunctionComponent<Props> = ({
           ref={backgroundRef}
         />
         <InnerNavigatorContainer
-          containerRef={mainContainerRef}
+          containerRef={containerRef}
           handleContainerChangeFromInside={handleContainerChangeFromInside}
           nextSection={SectionsTypes.THIRD_SECTIONS}
           previousSection={SectionsTypes.FIRST_SECTIONS}

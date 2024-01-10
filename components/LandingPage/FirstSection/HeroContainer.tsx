@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Text, Image } from '@chakra-ui/react'
 import React, {
   FunctionComponent,
+  LegacyRef,
   useCallback,
   useEffect,
   useRef,
@@ -13,16 +14,17 @@ import InnerNavigatorContainer from '../../shared/InnerNavigatorContainer'
 
 type Props = {
   handleContainerChangeFromInside: (value: SectionsTypes) => void
+  containerRef: LegacyRef<HTMLDivElement>
 }
 const HeroContainer: FunctionComponent<Props> = ({
   handleContainerChangeFromInside,
+  containerRef,
 }) => {
   const [heroCoverSmallScale, setSHeroCoverSmallScale] = useState<number>(740)
   const [heroCoverBigScale, setSHeroCoverBigScale] = useState<number>(2000)
   const [heroWidthScale, setHeroWidthScale] = useState(450)
   const [isHeroVisible, setIsHeroVisible] = useState(false)
   const timelineRef = useRef(gsap.timeline())
-  const mainContainerRef = useRef(null)
   const textRef = useRef<any>([])
   const creativeTextRef = useRef(null)
   const frontendTextRef = useRef(null)
@@ -117,7 +119,7 @@ const HeroContainer: FunctionComponent<Props> = ({
   }, [])
 
   return (
-    <Box bg={'#121212'} h={'100%'} w={'100%'} ref={mainContainerRef}>
+    <Box bg={'#121212'} h={'100%'} w={'100%'} ref={containerRef}>
       <Box
         w={'100vw'}
         h={'100vh'}
@@ -150,7 +152,7 @@ const HeroContainer: FunctionComponent<Props> = ({
           isHeroVisible={isHeroVisible}
         />
         <InnerNavigatorContainer
-          containerRef={mainContainerRef}
+          containerRef={containerRef}
           handleContainerChangeFromInside={handleContainerChangeFromInside}
           nextSection={SectionsTypes.SECOND_SECTIONS}
           delay={2.5}

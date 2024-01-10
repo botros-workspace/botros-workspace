@@ -43,6 +43,11 @@ const MainContainer: FunctionComponent = () => {
   const lowerContainerCoverRef = useRef(null)
   const lowerBorderRef = useRef(null)
   const upperBorderRef = useRef(null)
+  const firstSectionMainContainerRef = useRef(null)
+  const secondSectionMainContainerRef = useRef(null)
+  const thirdSectionMainContainerRef = useRef(null)
+  const fourthSectionMainContainerRef = useRef(null)
+  const galleryMainContainerRef = useRef(null)
   const timelineRef = useRef(gsap.timeline())
 
   const setContainerToFirstSection = useCallback(() => {
@@ -78,6 +83,26 @@ const MainContainer: FunctionComponent = () => {
     if (wantedContainer === SectionsTypes.FOURTH_SECTIONS) {
       setContainerToFourthSection()
     }
+    const context = gsap.context(() => {
+      const tl = timelineRef.current
+
+      tl.to(galleryMainContainerRef.current, {
+        transform: 'scale(1)',
+        opacity: 1,
+        duration: 0.5,
+        ease: 'expo.inOut',
+      }).to(
+        titleRef.current,
+        {
+          transform: 'translateY(0%) scale(2.5)',
+          opacity: 1,
+          duration: 0.5,
+          ease: 'expo.inOut',
+        },
+        '<'
+      )
+    })
+    return () => context.revert()
   }
   const handleContainerChangeFromInside = (selectedSection: SectionsTypes) => {
     const context = gsap.context(() => {
@@ -120,7 +145,7 @@ const MainContainer: FunctionComponent = () => {
       tl.to(
         titleRef.current,
         {
-          transform: 'translateY(350%) scale(2)',
+          transform: 'translateY(350%) scale(2.5)',
           duration: 1.2,
           ease: 'expo.inOut',
         },
@@ -667,21 +692,25 @@ const MainContainer: FunctionComponent = () => {
       {selectedSection === SectionsTypes.FIRST_SECTIONS && (
         <HeroContainer
           handleContainerChangeFromInside={handleContainerChangeFromInside}
+          containerRef={firstSectionMainContainerRef}
         />
       )}
       {selectedSection === SectionsTypes.SECOND_SECTIONS && (
         <SkillsMainContainer
           handleContainerChangeFromInside={handleContainerChangeFromInside}
+          containerRef={secondSectionMainContainerRef}
         />
       )}
       {selectedSection === SectionsTypes.THIRD_SECTIONS && (
         <AboutMeMainContainer
           handleContainerChangeFromInside={handleContainerChangeFromInside}
+          containerRef={thirdSectionMainContainerRef}
         />
       )}
       {selectedSection === SectionsTypes.FOURTH_SECTIONS && (
         <ContactMeMainContainer
           handleContainerChangeFromInside={handleContainerChangeFromInside}
+          containerRef={fourthSectionMainContainerRef}
         />
       )}
 
@@ -728,7 +757,7 @@ const MainContainer: FunctionComponent = () => {
         top={'50%'}
         pos={'absolute'}
       ></Box>
-      <Box w={'100vw'} h={'100vh'}>
+      <Box w={'100vw'} h={'100vh'} ref={galleryMainContainerRef}>
         <Flex
           display={'flex'}
           opacity={1}
@@ -873,6 +902,12 @@ const MainContainer: FunctionComponent = () => {
           selectedSection={selectedSection}
           containerSetter={containerSetter}
           handleContainerChangeFromInside={handleContainerChangeFromInside}
+          firstSectionMainContainerRef={firstSectionMainContainerRef}
+          secondSectionMainContainerRef={secondSectionMainContainerRef}
+          thirdSectionMainContainerRef={thirdSectionMainContainerRef}
+          fourthSectionMainContainerRef={fourthSectionMainContainerRef}
+          galleryMainContainerRef={galleryMainContainerRef}
+          currentTitleRef={titleRef}
         />
         {selectedSection !== SectionsTypes.NONE && selectedSection !== null ? (
           <Box h={'100%'} overflow={'hidden'} w={44} pt={2} zIndex={99999999}>
