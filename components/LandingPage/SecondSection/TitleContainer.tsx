@@ -121,7 +121,7 @@ const TitleContainer: FunctionComponent = () => {
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
               React, React Native, Typescript, custom plugins, features,
-              animations,
+              animations
             </Box>
           </Box>
           <Box overflow={'hidden'}>
