@@ -114,24 +114,29 @@ const TitleContainer: FunctionComponent = () => {
         <Box w={'95%'}>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              Specialized in building customized complex web applications with
-              React, Typescript,
+              Specialized in building customized complex web applications and
+              mobile applications with
             </Box>
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              custom plugins, features, animations, and coding interactive
-              layouts.
+              React, React Native, Typescript, custom plugins, features,
+              animations,
             </Box>
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              I have also full-stackdeveloper experience with one of the
+              and coding interactive layouts. I have also full-stackdeveloper
             </Box>
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              most reliable Framework - Python Django API
+              experience with one of the most reliable
+            </Box>
+          </Box>
+          <Box overflow={'hidden'}>
+            <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
+              Frameworks- Django API
             </Box>
           </Box>
           <Box
