@@ -14,7 +14,7 @@ import InnerNavigatorContainer from '../../shared/InnerNavigatorContainer'
 
 type Props = {
   handleContainerChangeFromInside: (value: SectionsTypes) => void
-  containerRef: LegacyRef<HTMLDivElement>
+  containerRef: any
 }
 const HeroContainer: FunctionComponent<Props> = ({
   handleContainerChangeFromInside,
@@ -318,6 +318,24 @@ const HeroContainer: FunctionComponent<Props> = ({
               borderRadius={'full'}
               w={{ base: 44, md: 72 }}
               fontSize={{ base: 20, md: 32 }}
+              onClick={() => {
+                const context = gsap.context(() => {
+                  const tl = timelineRef.current
+                  tl.to(containerRef.current, {
+                    transform: ' scale(0)',
+                    opacity: 0,
+                    background: '#121212',
+                    duration: 1,
+                    ease: 'expo.inOut',
+                    onComplete: () => {
+                      handleContainerChangeFromInside(
+                        SectionsTypes.FOURTH_SECTIONS
+                      )
+                    },
+                  })
+                })
+                return () => context.revert()
+              }}
               px={-1}
               opacity={0}
               py={{ base: 2, md: 6 }}

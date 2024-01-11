@@ -241,7 +241,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         pl={{ base: '15%', sm: '30%', lg: '20%' }}
         gap={5}
       >
-        <Box
+        {/* <Box
           cursor={'pointer'}
           _hover={{
             color: '#C59A27',
@@ -251,7 +251,7 @@ const IndexContainer: FunctionComponent<Props> = ({
           <Box ref={(text: any) => contactsRef.current.push(text)} opacity={0}>
             <ImGithub />
           </Box>
-        </Box>
+        </Box> */}
         <Link
           href={'https://www.linkedin.com/in/david-botros-967ba4211/'}
           target='_blank'
