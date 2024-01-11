@@ -322,10 +322,10 @@ const HeroContainer: FunctionComponent<Props> = ({
                 const context = gsap.context(() => {
                   const tl = timelineRef.current
                   tl.to(containerRef.current, {
-                    transform: ' scale(0)',
+                    transform: ' scale(5)',
                     opacity: 0,
                     background: '#121212',
-                    duration: 1,
+                    duration: 0.5,
                     ease: 'expo.inOut',
                     onComplete: () => {
                       handleContainerChangeFromInside(
