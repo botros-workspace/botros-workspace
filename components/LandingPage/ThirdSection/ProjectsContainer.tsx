@@ -17,13 +17,14 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
         'I worked on different projects using different programming languages and frameworks, alone and in teams, in which I have learned how to collaborate on code, be consistent in my style of coding and how to maintain a code base of a project.',
       skills: [
         'React',
-        'Electron',
-        'Git',
         'Javascript',
-        'Jira',
         'Typescript',
-        'Chakra ui',
+        'Electron',
         'Recoil',
+        'Chakra ui',
+        'Story book',
+        'Git',
+        'Jira',
         'Confluence',
       ],
     },
@@ -31,7 +32,16 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
       title: 'Augmented reality app for vicinity events',
       description:
         'I worked on different projects using different programming languages and frameworks, alone and in teams, in which I have learned how to collaborate on code, be consistent in my style of coding and how to maintain a code base of a project.',
-      skills: ['React', 'ReactNative', 'Javascript', 'Typescript', 'Electron'],
+      skills: [
+        'React',
+        'ReactNative',
+        'Native Base',
+        'Chakra ui',
+        'Javascript',
+        'Typescript',
+        'Recoil',
+        'Git',
+      ],
     },
   ]
   useEffect(() => {

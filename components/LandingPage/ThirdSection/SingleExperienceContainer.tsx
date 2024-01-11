@@ -27,7 +27,7 @@ const SingleExperienceContainer: FunctionComponent<Props> = ({
           opacity: 1,
           transform: 'translateY(0%)',
           duration: 0.8,
-          delay: window.innerWidth > 1000 ? 3 : 2,
+          delay: window.innerWidth > 1000 ? 2.7 : 1.5,
           ease: 'expo.inOut',
         }
       )
@@ -82,15 +82,21 @@ const SingleExperienceContainer: FunctionComponent<Props> = ({
           >
             {experience.title}
           </Text>
-          <Text
-            color={'white'}
-            fontSize={{ base: 18, lg: 14 }}
-            mt={3}
-            fontWeight={300}
-            lineHeight={2}
-          >
-            {experience.description}
-          </Text>
+          <Box mt={3}>
+            {experience.description.map((singleExperience, index) => {
+              return (
+                <Text
+                  key={index}
+                  color={'white'}
+                  fontSize={{ base: 18, lg: 14 }}
+                  fontWeight={400}
+                  lineHeight={2}
+                >
+                  {singleExperience}
+                </Text>
+              )
+            })}
+          </Box>
           <TagsContainer skills={experience.skills} isHovered={isHovered} />
         </Flex>
       </Flex>

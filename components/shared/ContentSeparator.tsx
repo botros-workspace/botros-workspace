@@ -13,8 +13,8 @@ const ContentSeparator = () => {
 
       tl.to([leftSepratorRef.current, rightSepratorRef.current], {
         width: '100%',
-        duration: 2,
-        delay: 2.1,
+        duration: 1.5,
+        delay: 2,
         ease: 'expo.inOut',
       })
     })

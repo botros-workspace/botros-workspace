@@ -32,7 +32,19 @@ const TagsContainer: FunctionComponent<Props> = ({ skills, isHovered }) => {
             py={1}
             bg={'rgb(197,	154	,39,0.1)'}
             fontWeight={400}
-            animation={isHovered ? `bounce  0.6s ease 0.${index}s` : ''}
+            animation={
+              isHovered
+                ? `bounce  0.6s ease ${
+                    index === 10
+                      ? `1.0s`
+                      : index === 11
+                      ? `1.1s`
+                      : index === 12
+                      ? `1.2s`
+                      : `0.${index}s`
+                  }`
+                : ''
+            }
           >
             {skill}
           </Box>
