@@ -65,7 +65,7 @@ const SkillsMainContainer: FunctionComponent<Props> = ({
           handleContainerChangeFromInside={handleContainerChangeFromInside}
           nextSection={SectionsTypes.THIRD_SECTIONS}
           previousSection={SectionsTypes.FIRST_SECTIONS}
-          delay={3}
+          delay={2}
         />
       </Box>
     </Box>

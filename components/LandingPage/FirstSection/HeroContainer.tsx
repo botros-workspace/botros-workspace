@@ -117,9 +117,10 @@ const HeroContainer: FunctionComponent<Props> = ({
                 ? 80
                 : 70,
             opacity: 1,
+            duration: 1,
             ease: 'expo.inOut',
           },
-          '<55%'
+          '<'
         )
     })
     return () => context.revert()
@@ -162,7 +163,7 @@ const HeroContainer: FunctionComponent<Props> = ({
           containerRef={containerRef}
           handleContainerChangeFromInside={handleContainerChangeFromInside}
           nextSection={SectionsTypes.SECOND_SECTIONS}
-          delay={2.5}
+          delay={2}
         />
         <Flex
           flexDir={{ base: 'column', xl: 'row' }}
@@ -310,7 +311,7 @@ const HeroContainer: FunctionComponent<Props> = ({
 
             <Button
               pos={'absolute'}
-              bottom={-60}
+              bottom={-110}
               right={7}
               ref={contactButtonRef}
               cursor={'pointer'}

@@ -93,7 +93,7 @@ const SkillsGallery: FunctionComponent = () => {
       tl.to(skillsRef.current, {
         transform: 'translateY(0%)',
         opacity: 1,
-        delay: 1.5,
+        delay: 1,
         stagger: 0.2,
         duration: 3,
         ease: 'expo.inOut',
