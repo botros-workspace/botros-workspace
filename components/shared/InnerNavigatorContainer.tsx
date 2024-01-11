@@ -28,6 +28,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
   const nextButtonRef = useRef(null)
   const previousButtonRef = useRef(null)
   const timelineRef = useRef(gsap.timeline())
+  const [didMount, setDidMount] = useState(false)
   const handleNextSectionPress = useCallback(() => {
     if (nextSection) {
       const context = gsap.context(() => {
@@ -80,6 +81,9 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
           delay: delay,
           opacity: 1,
           ease: 'expo.inOut',
+          onComplete: () => {
+            setDidMount(true)
+          },
         }
       ).fromTo(
         previousButtonRef.current,
@@ -129,7 +133,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
             transform: 'scale(0.8)',
             opacity: 0.5,
             transition: 'all 0.1s ease-in-out',
-            borderWidth: '1px',
+            borderWidth: didMount ? '1px' : '0px',
             borderRadius: '50%',
           }}
         >
@@ -165,7 +169,7 @@ const InnerNavigatorContainer: FunctionComponent<Props> = ({
             transform: 'scale(0.8)',
             opacity: 0.5,
             transition: 'all 0.1s ease-in-out',
-            borderWidth: '1px',
+            borderWidth: didMount ? '1px' : '0px',
             borderRadius: '50%',
           }}
           onClick={handlePreviousSectionPress}
