@@ -175,7 +175,9 @@ const UpperNavigator: FunctionComponent<Props> = ({
         alignItems={'center'}
         justifyContent={'center'}
         onClick={() => {
-          handleNavigatorPress(SectionsTypes.FIRST_SECTIONS)
+          if (currentSection !== SectionsTypes.FIRST_SECTIONS) {
+            handleNavigatorPress(SectionsTypes.FIRST_SECTIONS)
+          }
         }}
       >
         <UpperNavigatorPoint
@@ -197,7 +199,9 @@ const UpperNavigator: FunctionComponent<Props> = ({
         alignItems={'center'}
         justifyContent={'center'}
         onClick={() => {
-          handleNavigatorPress(SectionsTypes.SECOND_SECTIONS)
+          if (currentSection !== SectionsTypes.SECOND_SECTIONS) {
+            handleNavigatorPress(SectionsTypes.SECOND_SECTIONS)
+          }
         }}
       >
         <UpperNavigatorPoint
@@ -219,7 +223,9 @@ const UpperNavigator: FunctionComponent<Props> = ({
         alignItems={'center'}
         justifyContent={'center'}
         onClick={() => {
-          handleNavigatorPress(SectionsTypes.THIRD_SECTIONS)
+          if (currentSection !== SectionsTypes.THIRD_SECTIONS) {
+            handleNavigatorPress(SectionsTypes.THIRD_SECTIONS)
+          }
         }}
       >
         <UpperNavigatorPoint
@@ -241,7 +247,9 @@ const UpperNavigator: FunctionComponent<Props> = ({
         alignItems={'center'}
         justifyContent={'center'}
         onClick={() => {
-          handleNavigatorPress(SectionsTypes.FOURTH_SECTIONS)
+          if (currentSection !== SectionsTypes.FOURTH_SECTIONS) {
+            handleNavigatorPress(SectionsTypes.FOURTH_SECTIONS)
+          }
         }}
       >
         <UpperNavigatorPoint
