@@ -12,7 +12,22 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const projects: SingleProjectAttributes[] = [
     {
-      title: 'Germany insurence internal system',
+      title: 'Augmented reality app for vicinity events',
+      description:
+        'Revamped the code base of a mobile event application, ensuring seamless functionality and improved performance. Restructured the architecture between frontend and backend for enhanced responsiveness. Orchestrated effective collaboration by managing customer-developer relations, handling junior developers merge requests, and providing guidance through workshops on React principles and best practices.',
+      skills: [
+        'React',
+        'ReactNative',
+        'Native Base',
+        'Chakra ui',
+        'Javascript',
+        'Typescript',
+        'Recoil',
+        'Git',
+      ],
+    },
+    {
+      title: 'Insurence internal system',
       description:
         'Developed a feature-rich application with React Electron, Typescript, and Chakra UI, ensuring a seamless user experience. Validated components through Storybook testing, guaranteeing robust functionality. Implemented local data storage and conducted comprehensive unit testing with Jest for a reliable and efficient software solution.',
       skills: [
@@ -26,21 +41,6 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
         'Git',
         'Jira',
         'Confluence',
-      ],
-    },
-    {
-      title: 'Augmented reality app for vicinity events',
-      description:
-        'Revamped the code base of a mobile event application, ensuring seamless functionality and improved performance. Restructured the architecture between frontend and backend for enhanced responsiveness. Orchestrated effective collaboration by managing customer-developer relations, handling junior developers merge requests, and providing guidance through workshops on React principles and best practices.',
-      skills: [
-        'React',
-        'ReactNative',
-        'Native Base',
-        'Chakra ui',
-        'Javascript',
-        'Typescript',
-        'Recoil',
-        'Git',
       ],
     },
   ]
