@@ -108,7 +108,14 @@ const HeroContainer: FunctionComponent<Props> = ({
         .to(
           contactButtonRef.current,
           {
-            bottom: window.innerWidth > 1000 ? 20 : 75,
+            bottom:
+              window.innerWidth > 1100
+                ? 20
+                : window.innerWidth > 700 && window.innerWidth < 1000
+                ? 40
+                : window.innerWidth > 400
+                ? 80
+                : 70,
             opacity: 1,
             ease: 'expo.inOut',
           },
@@ -158,14 +165,14 @@ const HeroContainer: FunctionComponent<Props> = ({
           delay={2.5}
         />
         <Flex
-          flexDir={{ base: 'column', lg: 'row' }}
+          flexDir={{ base: 'column', xl: 'row' }}
           pos={'absolute'}
           top={0}
           left={0}
         >
           <Flex
-            h={{ base: '75vh', lg: '100vh' }}
-            w={{ base: '100vw', lg: '50vw' }}
+            h={{ base: '72vh', xl: '100vh' }}
+            w={{ base: '100vw', xl: '50vw' }}
             flexDir={'row'}
           >
             <Flex
@@ -196,7 +203,7 @@ const HeroContainer: FunctionComponent<Props> = ({
                 fontFamily={'Six Caps'}
                 overflow={'hidden'}
                 pos={'relative'}
-                h={{ base: '28.5%', md: '35%', lg: '18%', xl: '50%' }}
+                h={{ base: '28.5%', md: '37%', lg: '34%', xl: '50%' }}
               >
                 <Text
                   pos={'absolute'}
@@ -220,7 +227,7 @@ const HeroContainer: FunctionComponent<Props> = ({
                 fontFamily={'Six Caps'}
                 pos={'relative'}
                 overflow={'hidden'}
-                h={{ base: '28%', md: '35%', lg: '18%', xl: '50%' }}
+                h={{ base: '28%', md: '37%', lg: '34%', xl: '50%' }}
               >
                 <Text
                   pos={'absolute'}
@@ -239,94 +246,31 @@ const HeroContainer: FunctionComponent<Props> = ({
             </Flex>
           </Flex>
           <Flex
-            h={{ base: '25vh', lg: '100vh' }}
-            w={{ base: '100vw', lg: '50vw' }}
+            h={{ base: '28vh', xl: '100vh' }}
+            w={{ base: '100vw', xl: '50vw' }}
             overflow={'hidden'}
             mt={{ base: 12, md: 0 }}
+            pos={'relative'}
           >
             <Box
-              h={'70%'}
-              fontSize={24}
+              fontSize={{ base: 14, md: 24 }}
               fontWeight={600}
-              mt={12}
-              pr={'5%'}
-              zIndex={3}
-              textColor={'whitesmoke'}
-              fontFamily={'Geneva, sans-serif'}
-              visibility={{ base: 'hidden', xl: 'visible' }}
-              w={{ base: '0%', xl: '100%' }}
-              textAlign={'right'}
-            >
-              <Box overflow={'hidden'} textIndent={'4em'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  I HAVE A PROFOUND APPRECIATION{' '}
-                </Box>
-              </Box>
-              <Box overflow={'hidden'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  FOR CRAFTING A DIGITAL PRODUCT WITH A
-                </Box>
-              </Box>
-              <Box overflow={'hidden'} w={'100%'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  TOUCH OF WARMTH AND PRECISION.{' '}
-                </Box>
-              </Box>
-              <Box overflow={'hidden'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  WITH EXPERIENCE ACROSS MANY DOMAINS,{' '}
-                </Box>
-              </Box>
-              <Box overflow={'hidden'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  I SEAMLESSLY FUSE MY EGYPTIAN HERITAGE{' '}
-                </Box>
-              </Box>
-              <Box overflow={'hidden'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  WITH THE DYNAMIC TECH LANDSCAPE{' '}
-                </Box>
-              </Box>
-            </Box>
-            <Box
-              w={{ base: '100%', xl: '0%' }}
-              fontSize={{ base: 16, md: 24, lg: 28, xl: 20 }}
-              fontWeight={600}
+              mt={{ base: 0, xl: 12 }}
+              pr={{ base: 6, xl: 8 }}
               pos={'absolute'}
-              bottom={{ base: '20%', md: '16%', xl: 0 }}
-              right={{ base: 0, xl: '-120%' }}
-              pr={{ base: 7, lg: 8 }}
-              pl={{ base: 2, lg: 0 }}
+              right={0}
               zIndex={3}
               textColor={'whitesmoke'}
-              textAlign={'right'}
               fontFamily={'Geneva, sans-serif'}
-              visibility={{ base: 'visible', xl: 'hidden' }}
+              w={{ base: '100%', xl: '90%' }}
+              textAlign={'right'}
             >
               <Box overflow={'hidden'} textIndent={'4em'}>
                 <Box
                   ref={(text: any) => textRef.current.push(text)}
                   opacity={0}
                 >
-                  I HAVE A PROFOUND APPRECIATION{' '}
+                  I HAVE A PROFOUND APPRECIATION FOR{' '}
                 </Box>
               </Box>
               <Box overflow={'hidden'}>
@@ -334,7 +278,7 @@ const HeroContainer: FunctionComponent<Props> = ({
                   ref={(text: any) => textRef.current.push(text)}
                   opacity={0}
                 >
-                  FOR CRAFTING A DIGITAL PRODUCT WITH A
+                  CRAFTING A DIGITAL PRODUCT WITH A TOUCH OF
                 </Box>
               </Box>
               <Box overflow={'hidden'} w={'100%'}>
@@ -342,7 +286,16 @@ const HeroContainer: FunctionComponent<Props> = ({
                   ref={(text: any) => textRef.current.push(text)}
                   opacity={0}
                 >
-                  TOUCH OF WARMTH AND PRECISION.{' '}
+                  WARMTH AND PRECISION. THE MAIN GOAL OF THIS
+                </Box>
+              </Box>
+
+              <Box overflow={'hidden'}>
+                <Box
+                  ref={(text: any) => textRef.current.push(text)}
+                  opacity={0}
+                >
+                  WEBSITE IS TO DEMONSTRATE A SPECIFIC SET OF
                 </Box>
               </Box>
               <Box overflow={'hidden'}>
@@ -350,39 +303,24 @@ const HeroContainer: FunctionComponent<Props> = ({
                   ref={(text: any) => textRef.current.push(text)}
                   opacity={0}
                 >
-                  WITH EXPERIENCE ACROSS MANY DOMAINS,{' '}
-                </Box>
-              </Box>
-              <Box overflow={'hidden'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  I SEAMLESSLY FUSE MY EGYPTIAN HERITAGE{' '}
-                </Box>
-              </Box>
-              <Box overflow={'hidden'}>
-                <Box
-                  ref={(text: any) => textRef.current.push(text)}
-                  opacity={0}
-                >
-                  WITH THE DYNAMIC TECH LANDSCAPE{' '}
+                  SKILLS INFUSED WITH MY EGYPTIAN HERITAGE
                 </Box>
               </Box>
             </Box>
+
             <Button
               pos={'absolute'}
-              bottom={-30}
+              bottom={-60}
               right={7}
               ref={contactButtonRef}
               cursor={'pointer'}
               variant={'outline'}
               borderRadius={'full'}
-              w={{ base: 44, lg: 72 }}
-              fontSize={{ base: 20, lg: 32 }}
+              w={{ base: 44, md: 72 }}
+              fontSize={{ base: 20, md: 32 }}
               px={-1}
               opacity={0}
-              py={{ base: 2, lg: 6 }}
+              py={{ base: 2, md: 6 }}
               textAlign={'center'}
               color={'white'}
               _hover={{
