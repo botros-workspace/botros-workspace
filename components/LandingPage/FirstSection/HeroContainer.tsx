@@ -303,7 +303,7 @@ const HeroContainer: FunctionComponent<Props> = ({
                   ref={(text: any) => textRef.current.push(text)}
                   opacity={0}
                 >
-                  SKILLS INFUSED WITH MY EGYPTIAN HERITAGE
+                  SKILLS INFUSED WITH MY EGYPTIAN HERITAGE.
                 </Box>
               </Box>
             </Box>

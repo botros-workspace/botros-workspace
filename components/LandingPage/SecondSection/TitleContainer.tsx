@@ -120,18 +120,18 @@ const TitleContainer: FunctionComponent = () => {
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              React, React Native, Typescript, animations and coding interactive
-              layouts.
+              React, React Native, Typescript, animations and
+              interactive/responsive layouts.
             </Box>
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              I have also full-stackdeveloper experience with one of the
+              I have also full-stackdeveloper experience with one of the most
             </Box>
           </Box>
           <Box overflow={'hidden'}>
             <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              most reliable Frameworks- Django API
+              reliable Frameworks - Python Django API
             </Box>
           </Box>
 
