@@ -20,7 +20,7 @@ const SingleProject: FunctionComponent<Props> = ({ project }) => {
       borderRadius={'lg'}
       py={2}
       mb={4}
-      px={4}
+      px={6}
       cursor={'pointer'}
       transition='background-color 0.3s'
       _hover={{
@@ -40,7 +40,7 @@ const SingleProject: FunctionComponent<Props> = ({ project }) => {
         color={'white'}
         fontSize={{ base: 18, md: 14 }}
         mt={3}
-        fontWeight={300}
+        fontWeight={400}
         lineHeight={2}
       >
         {project.description}

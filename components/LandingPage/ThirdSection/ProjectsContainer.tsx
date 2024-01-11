@@ -14,7 +14,7 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
     {
       title: 'Germany insurence internal system',
       description:
-        'I worked on different projects using different programming languages and frameworks, alone and in teams, in which I have learned how to collaborate on code, be consistent in my style of coding and how to maintain a code base of a project.',
+        'Developed a feature-rich application with React Electron, Typescript, and Chakra UI, ensuring a seamless user experience. Validated components through Storybook testing, guaranteeing robust functionality. Implemented local data storage and conducted comprehensive unit testing with Jest for a reliable and efficient software solution.',
       skills: [
         'React',
         'Javascript',
@@ -31,7 +31,7 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
     {
       title: 'Augmented reality app for vicinity events',
       description:
-        'I worked on different projects using different programming languages and frameworks, alone and in teams, in which I have learned how to collaborate on code, be consistent in my style of coding and how to maintain a code base of a project.',
+        'Revamped the code base of a mobile event application, ensuring seamless functionality and improved performance. Restructured the architecture between frontend and backend for enhanced responsiveness. Orchestrated effective collaboration by managing customer-developer relations, handling junior developers merge requests, and providing guidance through workshops on React principles and best practices.',
       skills: [
         'React',
         'ReactNative',
