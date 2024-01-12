@@ -144,14 +144,14 @@ const IntroductionLayout: FunctionComponent<Props> = ({
       </Box>
       <Box
         pos={'absolute'}
-        top={8}
-        right={16}
+        top={{ base: 2, md: 8 }}
+        right={{ base: 2, md: 16 }}
         zIndex={999999999999999}
         color={'white'}
-        fontSize={'3xl'}
+        fontSize={{ base: 'lg', md: '3xl' }}
         fontWeight={600}
         borderWidth={1}
-        px={3}
+        px={{ base: 2, md: 3 }}
         as='button'
         _hover={{
           borderColor: 'red.500',
