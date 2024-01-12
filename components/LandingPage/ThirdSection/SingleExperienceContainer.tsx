@@ -27,7 +27,7 @@ const SingleExperienceContainer: FunctionComponent<Props> = ({
           opacity: 1,
           transform: 'translateY(0%)',
           duration: 0.8,
-          delay: window.innerWidth > 1000 ? 2.7 : 1.5,
+          delay: window.innerWidth > 1000 ? 1.5 : 1,
           ease: 'expo.inOut',
         }
       )

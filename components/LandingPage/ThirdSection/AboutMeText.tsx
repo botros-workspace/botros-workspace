@@ -34,7 +34,7 @@ const AboutMeText: FunctionComponent<Props> = ({ setSelectedIndex }) => {
           stagger: 0.03,
           ease: 'expo.inOut',
         },
-        '<70%'
+        '<30%'
       )
     })
     return () => context.revert()

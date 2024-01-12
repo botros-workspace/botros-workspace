@@ -72,7 +72,8 @@ const IndexContainer: FunctionComponent<Props> = ({
             opacity: 1,
             duration: 1,
             ease: 'power2.inOut',
-          }
+          },
+          '<'
         )
         .fromTo(
           indexesRef.current,
