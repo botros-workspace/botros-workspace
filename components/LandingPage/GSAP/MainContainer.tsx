@@ -15,6 +15,8 @@ import SkillsMainContainer from '../SecondSection'
 import HeroContainer from '../FirstSection/HeroContainer'
 import UpperNavigator from './UpperNavigator'
 import ContactMeMainContainer from '../FourthSection'
+import IntroductionLayout from './IntroductionLayout'
+import { TfiInfoAlt } from 'react-icons/tfi'
 
 const MainContainer: FunctionComponent = () => {
   const [selectedSection, setSelectedSection] = useState<SectionsTypes | null>(
@@ -34,6 +36,7 @@ const MainContainer: FunctionComponent = () => {
   const leftArrowRef = useRef(null)
   const rightArrowRef = useRef(null)
   const navbarTitleRef = useRef(null)
+  const infoIconRef = useRef(null)
   const backButtonRef = useRef(null)
   const leftArrowContainerRef = useRef(null)
   const rightArrowContainerRef = useRef(null)
@@ -48,6 +51,9 @@ const MainContainer: FunctionComponent = () => {
   const thirdSectionMainContainerRef = useRef(null)
   const fourthSectionMainContainerRef = useRef(null)
   const galleryMainContainerRef = useRef(null)
+  const [didMount, setDidMount] = useState(false)
+  const [shouldPresentIntroduction, setShouldPresentIntroduction] =
+    useState(false)
   const timelineRef = useRef(gsap.timeline())
 
   const setContainerToFirstSection = useCallback(() => {
@@ -190,7 +196,7 @@ const MainContainer: FunctionComponent = () => {
           '<20%'
         )
         .to(
-          navbarTitleRef.current,
+          [navbarTitleRef.current, infoIconRef.current],
           {
             yPercent: -200,
             opacity: 1,
@@ -268,6 +274,9 @@ const MainContainer: FunctionComponent = () => {
             transform: 'translateX(0%)',
             duration: 1,
             ease: 'expo.inOut',
+            onComplete: () => {
+              setDidMount(true)
+            },
           },
           '<80%'
         )
@@ -453,7 +462,7 @@ const MainContainer: FunctionComponent = () => {
       const context = gsap.context(() => {
         const tl = timelineRef.current
         tl.fromTo(
-          navbarTitleRef.current,
+          [navbarTitleRef.current, infoIconRef.current],
           {
             yPercent: -40,
           },
@@ -558,7 +567,7 @@ const MainContainer: FunctionComponent = () => {
           '<'
         )
         .fromTo(
-          navbarTitleRef.current,
+          [navbarTitleRef.current, infoIconRef.current],
           {
             yPercent: -200,
           },
@@ -567,6 +576,19 @@ const MainContainer: FunctionComponent = () => {
             opacity: 1,
             duration: 1,
             ease: 'expo.inOut',
+            onComplete: () => {
+              setDidMount(true)
+              const value = localStorage.getItem('shouldPresentIntroduction')
+              if (typeof value === 'string') {
+                if (value === 'true') {
+                  setShouldPresentIntroduction(true)
+                } else if (value === 'false') {
+                  setShouldPresentIntroduction(false)
+                }
+              } else {
+                setShouldPresentIntroduction(true)
+              }
+            },
           },
           '<-2%'
         )
@@ -723,6 +745,11 @@ const MainContainer: FunctionComponent = () => {
         zIndex={9999}
         ref={upperContainerOverlayRef}
       ></Box>
+      {didMount && shouldPresentIntroduction && (
+        <IntroductionLayout
+          setShouldPresentIntroduction={setShouldPresentIntroduction}
+        />
+      )}
       <Box
         pos={'absolute'}
         w={'100%'}
@@ -931,7 +958,13 @@ const MainContainer: FunctionComponent = () => {
             </Box>
           </Box>
         ) : (
-          <Flex h={'100%'} p={{ base: 4, lg: 8 }} overflow={'hidden'}>
+          <Flex
+            h={'100%'}
+            p={{ base: 4, lg: 8 }}
+            overflow={'hidden'}
+            justifyContent={'space-between'}
+            alignItems={'center'}
+          >
             <Text
               alignSelf={'center'}
               ref={navbarTitleRef}
@@ -940,6 +973,28 @@ const MainContainer: FunctionComponent = () => {
             >
               David Botros
             </Text>
+            <Box
+              w={8}
+              h={'100%'}
+              ref={infoIconRef}
+              opacity={0}
+              zIndex={99999999999}
+              pos={'absolute'}
+              right={10}
+              display={'flex'}
+              as='button'
+              _hover={{
+                opacity: 0.1,
+              }}
+              justifyContent={'center'}
+              alignItems={'center'}
+              onClick={() => {
+                localStorage.setItem('shouldPresentIntroduction', 'true')
+                setShouldPresentIntroduction(true)
+              }}
+            >
+              <TfiInfoAlt />
+            </Box>
           </Flex>
         )}
       </Box>
