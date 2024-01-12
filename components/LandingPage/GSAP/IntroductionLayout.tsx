@@ -21,6 +21,11 @@ const IntroductionLayout: FunctionComponent<Props> = ({
   const [textToDisplay, setTextToDisplay] = useState<string>(
     'Press for section details'
   )
+  const handleFinishIntroduction = () => {
+    setIsThirdPointerDone(true)
+    localStorage.setItem('shouldPresentIntroduction', 'false')
+    setShouldPresentIntroduction(false)
+  }
   const handleNextClick = () => {
     if (!isFirstPointerDone) {
       const context = gsap.context(() => {
@@ -77,11 +82,7 @@ const IntroductionLayout: FunctionComponent<Props> = ({
           opacity: 0,
           duration: 0.5,
           ease: 'expo.inOut',
-          onComplete: () => {
-            setIsThirdPointerDone(true)
-            localStorage.setItem('shouldPresentIntroduction', 'false')
-            setShouldPresentIntroduction(false)
-          },
+          onComplete: handleFinishIntroduction,
         }).to(containerRef.current, {
           transform: 'scale(0)',
           opacity: 0,
@@ -140,6 +141,26 @@ const IntroductionLayout: FunctionComponent<Props> = ({
             {textToDisplay}
           </Text>
         </Box>
+      </Box>
+      <Box
+        pos={'absolute'}
+        top={8}
+        right={16}
+        zIndex={999999999999999}
+        color={'white'}
+        fontSize={'3xl'}
+        fontWeight={600}
+        borderWidth={1}
+        px={3}
+        as='button'
+        _hover={{
+          borderColor: 'red.500',
+          color: 'red.500',
+        }}
+        borderRadius={'50%'}
+        onClick={handleFinishIntroduction}
+      >
+        X
       </Box>
       <Box
         pos={'absolute'}
