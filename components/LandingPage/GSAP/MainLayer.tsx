@@ -14,7 +14,7 @@ const MainLayer: FunctionComponent = () => {
   )
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
-  const minSwipeDistance = 50
+  const minSwipeDistance = 20
 
   const onTouchStart = (e: any) => {
     setTouchEnd(null)
