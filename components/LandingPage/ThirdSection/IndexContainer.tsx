@@ -1,11 +1,10 @@
 import { Avatar, Box, Center, Flex, Text } from '@chakra-ui/react'
 import React, { FunctionComponent, useEffect, useRef } from 'react'
 import IndexSingleRow from './IndexSingleRow'
-import { ImGithub } from 'react-icons/im'
-import { ImLinkedin } from 'react-icons/im'
 import { AboutMeIndexTypes } from '../../../shared/enums/about-me-index-types.enum'
 import Link from 'next/link'
 import { gsap } from 'gsap'
+import { FaDownload } from 'react-icons/fa6'
 
 type Props = {
   selectedIndex: AboutMeIndexTypes
@@ -273,6 +272,34 @@ const IndexContainer: FunctionComponent<Props> = ({
             </Box>
           </Box>
         </Link> */}
+        <Box
+          cursor={'pointer'}
+          _hover={{
+            color: '#C59A27',
+            scale: 1.1,
+          }}
+          overflow={'hidden'}
+          onClick={() => {
+            const aTag = document.createElement('a')
+            aTag.href = '/CV.pdf'
+            aTag.setAttribute('download', 'DavidBotrosCV')
+            aTag.click()
+            aTag.remove()
+          }}
+        >
+          <Box
+            ref={(text: any) => contactsRef.current.push(text)}
+            opacity={0}
+            display={'flex'}
+            dir={'column'}
+            gap={3}
+          >
+            <FaDownload />
+            <Text mt={-1} fontWeight={600}>
+              CV
+            </Text>
+          </Box>
+        </Box>
       </Flex>
     </Center>
   )
