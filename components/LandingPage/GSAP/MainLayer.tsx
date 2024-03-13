@@ -12,7 +12,46 @@ const MainLayer: FunctionComponent = () => {
   const [currentSection, setCurrentSection] = useState(
     SectionsTypes.FIRST_SECTIONS
   )
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+  const minSwipeDistance = 50
 
+  const onTouchStart = (e: any) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: any) => setTouchEnd(e.targetTouches[0].clientX)
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    if (isLeftSwipe) {
+      if (currentSection === SectionsTypes.FIRST_SECTIONS) {
+        setCurrentSection(SectionsTypes.SECOND_SECTIONS)
+      }
+      if (currentSection === SectionsTypes.SECOND_SECTIONS) {
+        setCurrentSection(SectionsTypes.THIRD_SECTIONS)
+      }
+      if (currentSection === SectionsTypes.THIRD_SECTIONS) {
+        setCurrentSection(SectionsTypes.FOURTH_SECTIONS)
+      }
+    }
+
+    if (isRightSwipe) {
+      if (currentSection === SectionsTypes.FOURTH_SECTIONS) {
+        setCurrentSection(SectionsTypes.THIRD_SECTIONS)
+      }
+      if (currentSection === SectionsTypes.THIRD_SECTIONS) {
+        setCurrentSection(SectionsTypes.SECOND_SECTIONS)
+      }
+      if (currentSection === SectionsTypes.SECOND_SECTIONS) {
+        setCurrentSection(SectionsTypes.FIRST_SECTIONS)
+      }
+    }
+  }
   const setContainerToFirstSection = useCallback(() => {
     setCurrentSection(SectionsTypes.FIRST_SECTIONS)
   }, [])
@@ -40,7 +79,13 @@ const MainLayer: FunctionComponent = () => {
     }
   }
   return (
-    <>
+    <Box
+      h={'100%'}
+      w={'100%'}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <Box h={6} w={'100%'} pos={'absolute'} zIndex={9999}>
         <UpperNavigator
           currentSection={currentSection}
@@ -61,7 +106,7 @@ const MainLayer: FunctionComponent = () => {
       {currentSection === SectionsTypes.FOURTH_SECTIONS && (
         <ContactMeMainContainer />
       )}
-    </>
+    </Box>
   )
 }
 
