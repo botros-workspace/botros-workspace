@@ -12,27 +12,11 @@ import { gsap } from 'gsap'
 
 type Props = {
   currentSection: SectionsTypes
-  selectedSection: SectionsTypes | null
-  containerSetter: (value: SectionsTypes) => void
-  handleContainerChangeFromInside: (value: SectionsTypes) => void
-  firstSectionMainContainerRef: any
-  secondSectionMainContainerRef: any
-  thirdSectionMainContainerRef: any
-  fourthSectionMainContainerRef: any
-  galleryMainContainerRef: any
-  currentTitleRef: any
+  handleNavigatorPress: (value: SectionsTypes) => void
 }
 const UpperNavigator: FunctionComponent<Props> = ({
   currentSection,
-  selectedSection,
-  containerSetter,
-  handleContainerChangeFromInside,
-  firstSectionMainContainerRef,
-  secondSectionMainContainerRef,
-  thirdSectionMainContainerRef,
-  fourthSectionMainContainerRef,
-  galleryMainContainerRef,
-  currentTitleRef,
+  handleNavigatorPress,
 }) => {
   const elementRef = useRef<any>([])
   const timelineRef = useRef(gsap.timeline())
@@ -40,98 +24,98 @@ const UpperNavigator: FunctionComponent<Props> = ({
   const [isHoveringSecondSection, setIsHoveringSecondSection] = useState(false)
   const [isHoveringThirdSection, setIsHoveringThirdSection] = useState(false)
   const [isHoveringFourthSection, setIsHoveringFourthSection] = useState(false)
-  const handleNavigatorPress = (value: SectionsTypes) => {
-    if (selectedSection !== SectionsTypes.NONE && selectedSection !== null) {
-      if (currentSection === SectionsTypes.FIRST_SECTIONS) {
-        const context = gsap.context(() => {
-          const tl = timelineRef.current
+  // const handleNavigatorPress = (value: SectionsTypes) => {
+  //   if (selectedSection !== SectionsTypes.NONE && selectedSection !== null) {
+  //     if (currentSection === SectionsTypes.FIRST_SECTIONS) {
+  //       const context = gsap.context(() => {
+  //         const tl = timelineRef.current
 
-          tl.to(firstSectionMainContainerRef.current, {
-            transform: 'scale(0)',
-            opacity: 0,
-            duration: 0.8,
-            ease: 'expo.inOut',
-            onComplete: () => {
-              handleContainerChangeFromInside(value)
-            },
-          })
-        })
-        return () => context.revert()
-      }
-      if (currentSection === SectionsTypes.SECOND_SECTIONS) {
-        const context = gsap.context(() => {
-          const tl = timelineRef.current
+  //         tl.to(firstSectionMainContainerRef.current, {
+  //           transform: 'scale(0)',
+  //           opacity: 0,
+  //           duration: 0.8,
+  //           ease: 'expo.inOut',
+  //           onComplete: () => {
+  //             handleContainerChangeFromInside(value)
+  //           },
+  //         })
+  //       })
+  //       return () => context.revert()
+  //     }
+  //     if (currentSection === SectionsTypes.SECOND_SECTIONS) {
+  //       const context = gsap.context(() => {
+  //         const tl = timelineRef.current
 
-          tl.to(secondSectionMainContainerRef.current, {
-            transform: 'scale(0)',
-            opacity: 0,
-            duration: 0.8,
-            ease: 'expo.inOut',
-            onComplete: () => {
-              handleContainerChangeFromInside(value)
-            },
-          })
-        })
-        return () => context.revert()
-      }
-      if (currentSection === SectionsTypes.THIRD_SECTIONS) {
-        const context = gsap.context(() => {
-          const tl = timelineRef.current
+  //         tl.to(secondSectionMainContainerRef.current, {
+  //           transform: 'scale(0)',
+  //           opacity: 0,
+  //           duration: 0.8,
+  //           ease: 'expo.inOut',
+  //           onComplete: () => {
+  //             handleContainerChangeFromInside(value)
+  //           },
+  //         })
+  //       })
+  //       return () => context.revert()
+  //     }
+  //     if (currentSection === SectionsTypes.THIRD_SECTIONS) {
+  //       const context = gsap.context(() => {
+  //         const tl = timelineRef.current
 
-          tl.to(thirdSectionMainContainerRef.current, {
-            transform: 'scale(0)',
-            opacity: 0,
-            duration: 0.8,
-            ease: 'expo.inOut',
-            onComplete: () => {
-              handleContainerChangeFromInside(value)
-            },
-          })
-        })
-        return () => context.revert()
-      }
-      if (currentSection === SectionsTypes.FOURTH_SECTIONS) {
-        const context = gsap.context(() => {
-          const tl = timelineRef.current
+  //         tl.to(thirdSectionMainContainerRef.current, {
+  //           transform: 'scale(0)',
+  //           opacity: 0,
+  //           duration: 0.8,
+  //           ease: 'expo.inOut',
+  //           onComplete: () => {
+  //             handleContainerChangeFromInside(value)
+  //           },
+  //         })
+  //       })
+  //       return () => context.revert()
+  //     }
+  //     if (currentSection === SectionsTypes.FOURTH_SECTIONS) {
+  //       const context = gsap.context(() => {
+  //         const tl = timelineRef.current
 
-          tl.to(fourthSectionMainContainerRef.current, {
-            transform: 'scale(0)',
-            opacity: 0,
-            duration: 0.8,
-            ease: 'expo.inOut',
-            onComplete: () => {
-              handleContainerChangeFromInside(value)
-            },
-          })
-        })
-        return () => context.revert()
-      }
-    } else {
-      const context = gsap.context(() => {
-        const tl = timelineRef.current
+  //         tl.to(fourthSectionMainContainerRef.current, {
+  //           transform: 'scale(0)',
+  //           opacity: 0,
+  //           duration: 0.8,
+  //           ease: 'expo.inOut',
+  //           onComplete: () => {
+  //             handleContainerChangeFromInside(value)
+  //           },
+  //         })
+  //       })
+  //       return () => context.revert()
+  //     }
+  //   } else {
+  //     const context = gsap.context(() => {
+  //       const tl = timelineRef.current
 
-        tl.to(galleryMainContainerRef.current, {
-          transform: 'scale(0)',
-          opacity: 0,
-          duration: 0.5,
-          ease: 'expo.inOut',
-        }).to(
-          currentTitleRef.current,
-          {
-            transform: 'translateY(350%) scale(2.5)',
-            opacity: 0,
-            duration: 0.5,
-            ease: 'expo.inOut',
-            onComplete: () => {
-              containerSetter(value)
-            },
-          },
-          '<'
-        )
-      })
-      return () => context.revert()
-    }
-  }
+  //       tl.to(galleryMainContainerRef.current, {
+  //         transform: 'scale(0)',
+  //         opacity: 0,
+  //         duration: 0.5,
+  //         ease: 'expo.inOut',
+  //       }).to(
+  //         currentTitleRef.current,
+  //         {
+  //           transform: 'translateY(350%) scale(2.5)',
+  //           opacity: 0,
+  //           duration: 0.5,
+  //           ease: 'expo.inOut',
+  //           onComplete: () => {
+  //             containerSetter(value)
+  //           },
+  //         },
+  //         '<'
+  //       )
+  //     })
+  //     return () => context.revert()
+  //   }
+  // }
   useEffect(() => {
     const context = gsap.context(() => {
       const tl = timelineRef.current

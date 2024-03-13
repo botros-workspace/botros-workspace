@@ -138,7 +138,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         overflow={'hidden'}
       >
         <Text
-          w={{ base: '80%', lg: '70%', xl: '60%' }}
+          w={{ base: '90%', md: '50%', lg: '90%', xl: '70%' }}
           fontSize={16}
           fontWeight={200}
           textAlign={'left'}
@@ -253,7 +253,7 @@ const IndexContainer: FunctionComponent<Props> = ({
             <ImGithub />
           </Box>
         </Box> */}
-        <Link
+        {/* <Link
           href={'https://www.linkedin.com/in/david-botros-967ba4211/'}
           target='_blank'
         >
@@ -272,7 +272,7 @@ const IndexContainer: FunctionComponent<Props> = ({
               <ImLinkedin />
             </Box>
           </Box>
-        </Link>
+        </Link> */}
       </Flex>
     </Center>
   )

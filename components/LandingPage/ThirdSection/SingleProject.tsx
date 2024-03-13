@@ -18,8 +18,10 @@ const SingleProject: FunctionComponent<Props> = ({ project }) => {
       onMouseLeave={() => setIsHovered(false)}
       w={{ base: '90%', sm: '95%', xl: '90%' }}
       borderRadius={'lg'}
+      borderWidth={{ base: 0, lg: 0.5 }}
+      borderColor={!isHovered ? 'white' : '#C59A27'}
       py={2}
-      mb={4}
+      mb={8}
       px={6}
       cursor={'pointer'}
       transition='background-color 0.3s'

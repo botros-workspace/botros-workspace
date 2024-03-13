@@ -27,7 +27,7 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
       ],
     },
     {
-      title: 'Insurence internal system',
+      title: 'Insurance system internal application',
       description:
         'Developed a feature-rich application with React Electron, Typescript, and Chakra UI, ensuring a seamless user experience. Validated components through Storybook testing, guaranteeing robust functionality. Implemented local data storage and conducted comprehensive unit testing with Jest for a reliable and efficient software solution.',
       skills: [

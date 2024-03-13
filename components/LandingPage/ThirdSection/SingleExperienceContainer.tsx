@@ -41,8 +41,10 @@ const SingleExperienceContainer: FunctionComponent<Props> = ({
         onMouseLeave={() => setIsHovered(false)}
         w={{ base: '90%', sm: '95%', xl: '90%' }}
         borderRadius={'lg'}
+        borderWidth={{ base: 0, lg: 0.5 }}
+        borderColor={!isHovered ? 'white' : '#C59A27'}
         py={3}
-        mb={4}
+        mb={8}
         gap={2}
         flexDir={{ base: 'column', lg: 'row' }}
         cursor={'pointer'}

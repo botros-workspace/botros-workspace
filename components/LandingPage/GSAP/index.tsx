@@ -2,7 +2,7 @@ import React, { FunctionComponent, useLayoutEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { Box } from '@chakra-ui/react'
 import IntroLoader from './IntroLoader'
-import MainContainer from './MainContainer'
+import MainLayer from './MainLayer'
 
 const GSAPContainer: FunctionComponent = () => {
   const [loaderFinished, setLoaderFinished] = useState(false)
@@ -20,12 +20,11 @@ const GSAPContainer: FunctionComponent = () => {
     <>
       {loaderFinished ? (
         <Box w={'100%'} h={'100%'} pos={'relative'}>
-          <MainContainer />
+          <MainLayer />
         </Box>
       ) : (
         <IntroLoader timeline={timeline} />
       )}
-      {/* <MainContainer /> */}
     </>
   )
 }

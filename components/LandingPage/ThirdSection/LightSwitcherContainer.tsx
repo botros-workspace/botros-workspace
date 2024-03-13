@@ -1,5 +1,12 @@
 import { Box } from '@chakra-ui/react'
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react'
+import React, {
+  FunctionComponent,
+  LegacyRef,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { motion } from 'framer-motion'
 import { FaRegLightbulb, FaLightbulb } from 'react-icons/fa6'
 import { Player } from '@lottiefiles/react-lottie-player'
@@ -17,13 +24,13 @@ const LightSwitcherContainer: FunctionComponent<Props> = ({
   const [stop, setStop] = useState(false)
   const [start, setStart] = useState(false)
   const [scale, setScale] = useState(0)
-  const [arrowHeight, setArrowHeight] = useState(180)
-  const [arrowWidth, setArrowWidth] = useState(180)
+  const [arrowHeight, setArrowHeight] = useState(100)
+  const [arrowWidth, setArrowWidth] = useState(100)
   const [arrowTop, setArrowTop] = useState(140)
-  const [arrowLeft, setArrowLeft] = useState(-10)
+  const [arrowLeft, setArrowLeft] = useState(50)
   const [shortBlink, setShortBlink] = useState(false)
   const [opacity, setOpacity] = useState(0)
-  const ref = useRef<Player>(null)
+  const ref = useRef<any>(null)
 
   useEffect(() => {
     const showId = window.setInterval(function () {
@@ -100,24 +107,29 @@ const LightSwitcherContainer: FunctionComponent<Props> = ({
     }
   }, [scale, stop, opacity])
 
-  useEffect(() => {
-    if (ref.current && stop && opacity === 1) {
-      ref.current.setSeeker(scale)
-    }
-  }, [scale, stop, opacity])
+  // useEffect(() => {
+  //   if (ref.current && stop && opacity === 1) {
+  //     ref.current.setSeeker(scale)
+  //   }
+  // }, [scale, stop, opacity])
   return (
     <Box
       visibility={{ base: 'hidden', xl: 'visible' }}
       zIndex={99999999}
       opacity={opacity}
       transition={'all ease-in-out .8s'}
+      ref={ref}
+      onMouseEnter={() => {
+        setShortBlink(true)
+        setStart(true)
+        setStop(false)
+      }}
     >
       <Box
         as={motion.div}
         pos={'fixed'}
-        top={32}
-        left={150}
-        zIndex={9}
+        top={28}
+        left={130}
         cursor={'pointer'}
         fontSize={'6xl'}
         whileTap={{
@@ -129,44 +141,65 @@ const LightSwitcherContainer: FunctionComponent<Props> = ({
         transition='0.1s linear'
         animate={blink ? { scale: 0.8, opacity: 0.5 } : ''}
       >
-        <FaRegLightbulb />
+        <Box
+          w={'100%'}
+          h={'100%'}
+          display={'flex'}
+          justifyContent={'center'}
+          alignItems={'center'}
+        >
+          <FaRegLightbulb />
+        </Box>
+        <Box
+          w={'100%'}
+          h={6}
+          fontSize={'lg'}
+          color={
+            (!isLightOn || blink) && (isLightOn || blink) ? 'white' : '#C59A27'
+          }
+        >
+          Click me!
+        </Box>
       </Box>
-      <Box
-        bg={'red'}
+
+      {/* <Box
+      
         zIndex={99999}
         onMouseEnter={() => {
           setShortBlink(true)
           setStart(true)
           setStop(false)
-          setArrowWidth(150)
+          setArrowWidth(70)
           setArrowHeight(160)
           setArrowTop(135)
-          setArrowLeft(20)
+          setArrowLeft(50)
         }}
         onMouseLeave={() => {
-          setArrowWidth(180)
+          setArrowWidth(100)
           setArrowHeight(180)
           setArrowTop(140)
-          setArrowLeft(-10)
+          setArrowLeft(10)
         }}
       >
         <Player
           ref={ref}
-          autoplay={false}
+          autoplay={true}
           loop={false}
-          src='https://assets-v2.lottiefiles.com/a/5cdcc126-1179-11ee-a2f7-c313dabeac35/fDzi4jDGMb.json'
+          src='/animation/pointer.json'
           style={{
             transition: 'ease-in-out 0.4s',
             height: `${arrowHeight}px`,
             width: `${arrowWidth}px`,
-            rotate: `-50deg`,
+            color: '#C59A27',
             position: 'fixed',
+            rotate: `-280deg`,
+            opacity: 1,
             left: arrowLeft,
             top: arrowTop,
-            zIndex: 9,
+            zIndex: 999999999999999,
           }}
         />
-      </Box>
+      </Box> */}
     </Box>
   )
 }

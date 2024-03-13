@@ -12,17 +12,8 @@ import ContentContainer from './ ContentContainer'
 import { AboutMeIndexTypes } from '../../../shared/enums/about-me-index-types.enum'
 import { scroller } from 'react-scroll'
 import LightSwitcherContainer from './LightSwitcherContainer'
-import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
-import InnerNavigatorContainer from '../../shared/InnerNavigatorContainer'
 
-type Props = {
-  handleContainerChangeFromInside: (value: SectionsTypes) => void
-  containerRef: LegacyRef<HTMLDivElement>
-}
-const AboutMeMainContainer: FunctionComponent<Props> = ({
-  handleContainerChangeFromInside,
-  containerRef,
-}) => {
+const AboutMeMainContainer: FunctionComponent = () => {
   const [selectedIndex, setSelectedIndex] = useState<AboutMeIndexTypes>()
   const [isLightOn, setIsLightOn] = useState(false)
   const [didMount, setDidMount] = useState(false)
@@ -117,15 +108,9 @@ const AboutMeMainContainer: FunctionComponent<Props> = ({
     }
   }, [])
   return (
-    <Box bg={'#121212'} ref={containerRef}>
+    <Box bg={'#121212'}>
       <Box bg={'#121212'} pos={'fixed'} h={'100%'} w={'100%'} />
-      <InnerNavigatorContainer
-        containerRef={containerRef}
-        handleContainerChangeFromInside={handleContainerChangeFromInside}
-        nextSection={SectionsTypes.FOURTH_SECTIONS}
-        previousSection={SectionsTypes.SECOND_SECTIONS}
-        delay={1.5}
-      />
+
       <Flex
         w={'100%'}
         h={'100%'}

@@ -10,17 +10,8 @@ import { gsap } from 'gsap'
 import { Box, Image } from '@chakra-ui/react'
 import TitleContainer from './TitleContainer'
 import SkillsGallery from './SkillsGallery'
-import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
-import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi'
-import InnerNavigatorContainer from '../../shared/InnerNavigatorContainer'
-type Props = {
-  handleContainerChangeFromInside: (value: SectionsTypes) => void
-  containerRef: LegacyRef<HTMLDivElement>
-}
-const SkillsMainContainer: FunctionComponent<Props> = ({
-  handleContainerChangeFromInside,
-  containerRef,
-}) => {
+
+const SkillsMainContainer: FunctionComponent = () => {
   const backgroundRef = useRef<any>([])
   const timelineRef = useRef(gsap.timeline())
 
@@ -45,7 +36,7 @@ const SkillsMainContainer: FunctionComponent<Props> = ({
       overflow={'hidden'}
       bg={'#121212'}
     >
-      <Box w={'100%'} h={'100%'} ref={containerRef}>
+      <Box w={'100%'} h={'100%'}>
         <TitleContainer />
         <SkillsGallery />
         <Image
@@ -59,13 +50,6 @@ const SkillsMainContainer: FunctionComponent<Props> = ({
           objectFit={'contain'}
           opacity={0}
           ref={backgroundRef}
-        />
-        <InnerNavigatorContainer
-          containerRef={containerRef}
-          handleContainerChangeFromInside={handleContainerChangeFromInside}
-          nextSection={SectionsTypes.THIRD_SECTIONS}
-          previousSection={SectionsTypes.FIRST_SECTIONS}
-          delay={2}
         />
       </Box>
     </Box>
