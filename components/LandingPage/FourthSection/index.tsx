@@ -308,7 +308,14 @@ const ContactMeMainContainer: FunctionComponent = () => {
     return () => context.revert()
   }, [])
   return (
-    <Box bg={'#121212'} h={'100vh'} maxH={'100vh'} w={'100vw'} pos={'absolute'}>
+    <Box
+      bg={'#121212'}
+      h={'100vh'}
+      maxH={'100vh'}
+      w={'100vw'}
+      pos={'absolute'}
+      overflow={'hidden'}
+    >
       <Box
         w={'100%'}
         h={'100vh'}
