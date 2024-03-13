@@ -42,7 +42,10 @@ const LeftCardContainer: FunctionComponent = () => {
           ease: 'expo.inOut',
         })
         .to(containerRef.current, {
-          transform: 'translateY(45%) skewY(0deg) skewX(0deg)',
+          transform:
+            window.innerWidth < 768
+              ? 'translateY(15%) skewY(0deg) skewX(0deg)'
+              : 'translateY(45%) skewY(0deg) skewX(0deg)',
           duration: 0.05,
           ease: 'expo.inOut',
         })

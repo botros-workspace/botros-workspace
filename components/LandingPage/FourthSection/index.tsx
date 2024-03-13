@@ -308,7 +308,7 @@ const ContactMeMainContainer: FunctionComponent = () => {
     return () => context.revert()
   }, [])
   return (
-    <Box bg={'#121212'} h={'100vh'} maxH={'100vh'} w={'100vw'}>
+    <Box bg={'#121212'} h={'100vh'} maxH={'100vh'} w={'100vw'} pos={'absolute'}>
       <Box
         w={'100%'}
         h={'100vh'}
@@ -320,7 +320,7 @@ const ContactMeMainContainer: FunctionComponent = () => {
       >
         <Box
           w={72}
-          h={96}
+          h={{ base: 72, md: 96 }}
           ref={leftcardContainerRef}
           borderColor={'white'}
           transform={{ base: 'translateY(-600%)', md: 'translateX(-600%)' }}
@@ -337,7 +337,7 @@ const ContactMeMainContainer: FunctionComponent = () => {
         </Box>
         <Box
           w={72}
-          h={96}
+          h={{ base: 72, md: 96 }}
           ref={rightcardContainerRef}
           borderColor={'white'}
           transform={{ base: 'translateY(600%)', md: 'translateX(600%)' }}

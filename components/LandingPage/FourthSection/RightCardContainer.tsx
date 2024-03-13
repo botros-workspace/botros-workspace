@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import { Box, Image, Text } from '@chakra-ui/react'
 
-const RightCardContainer = () => {
+const RightCardContainer: FunctionComponent = () => {
   return (
     <Box
       display={'flex'}
@@ -12,11 +12,27 @@ const RightCardContainer = () => {
       flexDir={'column'}
       pos={'relative'}
     >
-      <Text fontSize={32} fontWeight={700} pt={4} pos={'absolute'} top={0}>
+      <Text
+        fontSize={{ base: 24, md: 32 }}
+        fontWeight={700}
+        pt={0}
+        pos={'absolute'}
+        top={0}
+      >
         Contact info
       </Text>
-      <Image alt='qrcode' src='./contactQR.png' w={'100%'}></Image>
-      <Text fontSize={28} fontWeight={700} pos={'absolute'} bottom={4}>
+      <Image
+        alt='qrcode'
+        src='./contactQR.png'
+        w={'100%'}
+        borderRadius={18}
+      ></Image>
+      <Text
+        fontSize={{ base: 24, md: 28 }}
+        fontWeight={700}
+        pos={'absolute'}
+        bottom={1}
+      >
         Scan to save
       </Text>
     </Box>
