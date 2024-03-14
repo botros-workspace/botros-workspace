@@ -8,6 +8,7 @@ import React, {
 } from 'react'
 import HeroCover from './HeroCover'
 import { gsap } from 'gsap'
+import ProductsContainer from './ProductsContainer'
 type Props = {
   setContainerToFourthSection: () => void
 }
@@ -24,13 +25,16 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
   const [heroWidthScale, setHeroWidthScale] = useState(450)
   const [isHeroVisible, setIsHeroVisible] = useState(false)
   const timelineRef = useRef(gsap.timeline())
+  const [showProducts, setShowProducts] = useState(false)
 
   const handleMouseEnter = useCallback(() => {
+    setShowProducts(false)
     setSHeroCoverSmallScale(0)
     setSHeroCoverBigScale(0)
     setHeroWidthScale(0)
   }, [])
   const handleMouseLeave = useCallback(() => {
+    setShowProducts(true)
     setSHeroCoverSmallScale(740)
     setSHeroCoverBigScale(2000)
     setHeroWidthScale(450)
@@ -262,6 +266,7 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
                   </Box>
                 </Box>
               </Box>
+
               <Box
                 h={{ base: 20, lg: 28 }}
                 w={{ base: '100%', xl: '50%' }}
@@ -295,6 +300,7 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
                   CONTACT ME
                 </Button>
               </Box>
+              <ProductsContainer show={showProducts} />
             </Box>
           </Flex>
         </Flex>
