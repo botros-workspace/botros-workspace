@@ -94,8 +94,7 @@ const LeftCardContainer: FunctionComponent = () => {
         />
         <LeftCardSingleRow
           image={<GoLocation />}
-          text={'Sebastianplatz, 1030 Wien'}
-          title={'Address'}
+          text={'Vienna, Austria'}
           isBold={false}
         />
       </Flex>
