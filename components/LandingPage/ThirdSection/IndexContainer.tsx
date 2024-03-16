@@ -127,7 +127,7 @@ const IndexContainer: FunctionComponent<Props> = ({
           opacity={0}
           ref={(text: any) => textsRef.current.push(text)}
         >
-          Senior Javascript developer
+          Senior Frontend developer
         </Text>
       </Box>
       <Box
