@@ -1,4 +1,9 @@
-import React, { FunctionComponent, useCallback, useRef, useState } from 'react'
+import React, {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
 import { Box, Flex } from '@chakra-ui/react'
 import SkillsMainContainer from '../SecondSection'
@@ -78,6 +83,37 @@ const MainLayer: FunctionComponent = () => {
       setContainerToFourthSection()
     }
   }
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        if (currentSection === SectionsTypes.SECOND_SECTIONS) {
+          setContainerToFirstSection()
+        }
+        if (currentSection === SectionsTypes.THIRD_SECTIONS) {
+          setContainerToSecondSection()
+        }
+        if (currentSection === SectionsTypes.FOURTH_SECTIONS) {
+          setContainerToThirdSection()
+        }
+      } else if (event.key === 'ArrowRight') {
+        if (currentSection === SectionsTypes.FIRST_SECTIONS) {
+          setContainerToSecondSection()
+        }
+        if (currentSection === SectionsTypes.SECOND_SECTIONS) {
+          setContainerToThirdSection()
+        }
+        if (currentSection === SectionsTypes.THIRD_SECTIONS) {
+          setContainerToFourthSection()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyPress)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [currentSection])
   return (
     <Box
       h={'100%'}
