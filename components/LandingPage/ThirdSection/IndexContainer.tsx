@@ -101,6 +101,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         mt={4}
         backgroundSize={'cover'}
         ref={avatarRef}
+        borderWidth={2}
       />
       <Box overflow={'hidden'} w={'100%'}>
         <Text
