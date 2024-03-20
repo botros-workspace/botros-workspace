@@ -82,7 +82,7 @@ const ExperienceContainer: FunctionComponent<Props> = ({
         'PostgreSQL',
         'Redis',
         'Git',
-        'Mango DB',
+        'Mongo DB',
         'Chakra ui',
         'Story book',
       ],
