@@ -1,7 +1,7 @@
 import { Flex, Box, useToast } from '@chakra-ui/react'
 import React, { FunctionComponent, ReactNode } from 'react'
 import TooltipTemplate from '../../shared/TooltipTemplate'
-import { FaRegCopy } from 'react-icons/fa6'
+import { FaCircleInfo, FaRegCopy } from 'react-icons/fa6'
 type Props = {
   image: ReactNode
   title?: string
@@ -24,11 +24,27 @@ const LeftCardSingleRow: FunctionComponent<Props> = ({
         if (title) {
           navigator.clipboard.writeText(text)
           toast({
-            title: `${title} has been copied`,
-            description: `${text}`,
-            status: 'info',
             duration: 2000,
-            isClosable: true,
+            render: () => (
+              <Flex
+                direction={'row'}
+                color={'white'}
+                borderWidth={1}
+                borderRadius={'5px'}
+                borderColor={'white'}
+                px={4}
+                h={16}
+                w={'auto'}
+              >
+                <Flex fontSize={20} fontWeight={700} direction={'row'} pt={2.5}>
+                  <FaCircleInfo />
+                </Flex>
+                <Flex direction={'column'} px={4} justifyContent={'center'}>
+                  <Flex>{title} has been copied</Flex>
+                  <Flex textDecor={'underline'}>{text}</Flex>
+                </Flex>
+              </Flex>
+            ),
           })
         }
       }}
