@@ -22,7 +22,7 @@ const SingleProject: FunctionComponent<Props> = ({ project }) => {
       borderColor={!isHovered ? 'white' : '#C59A27'}
       py={2}
       mb={8}
-      px={6}
+      px={{ base: 4, sm: 0, md: 4, lg: 6 }}
       cursor={'pointer'}
       transition='background-color 0.3s'
       _hover={{
