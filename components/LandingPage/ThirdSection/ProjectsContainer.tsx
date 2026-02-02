@@ -12,35 +12,49 @@ const ProjectsContainer: FunctionComponent<Props> = ({ setSelectedIndex }) => {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const projects: SingleProjectAttributes[] = [
     {
-      title: 'Augmented reality app for vicinity events',
+      title: 'Crewser – Time Tracking SaaS',
       description:
-        'Revamped the code base of a mobile event application, ensuring seamless functionality and improved performance. Restructured the architecture between frontend and backend for enhanced responsiveness. Orchestrated effective collaboration by managing customer-developer relations, handling junior developers merge requests, and providing guidance through workshops on React principles and best practices.',
+        'Designed and developed the frontend architecture for a time-tracking SaaS using React and TypeScript. Delivered a scalable, production-ready application with a strong focus on usability, performance, and long-term maintainability. Owned frontend technical decisions from early development through production release.',
       skills: [
         'React',
-        'ReactNative',
+        'TypeScript',
+        'Next.js',
+        'JavaScript',
+        'HTML',
+        'CSS',
+        'Git',
+      ],
+    },
+
+    {
+      title: 'MetaInfoXR – Augmented Reality Events App',
+      description:
+        'Led the frontend development of a React Native and TypeScript augmented reality mobile application featuring an interactive map for local events. Defined frontend architecture, improved performance and responsiveness, and guided junior developers through code reviews and internal React workshops.',
+      skills: [
+        'React',
+        'React Native',
+        'TypeScript',
+        'JavaScript',
         'Native Base',
-        'Chakra ui',
-        'Javascript',
-        'Typescript',
+        'Chakra UI',
         'Recoil',
         'Git',
       ],
     },
     {
-      title: 'Insurance system internal application',
+      title: 'AOK Germany – Insurance Internal Application',
       description:
-        'Developed a feature-rich application with React Electron, Typescript, and Chakra UI, ensuring a seamless user experience. Validated components through Storybook testing, guaranteeing robust functionality. Implemented local data storage and conducted comprehensive unit testing with Jest for a reliable and efficient software solution.',
+        'Developed a feature-rich internal insurance application using React, Electron, and TypeScript. Built reusable UI components, validated them through Storybook, implemented local data storage, and ensured application reliability through comprehensive unit testing with Jest.',
       skills: [
         'React',
-        'Javascript',
-        'Typescript',
         'Electron',
+        'TypeScript',
+        'JavaScript',
+        'Chakra UI',
         'Recoil',
-        'Chakra ui',
-        'Story book',
+        'Storybook',
+        'Jest',
         'Git',
-        'Jira',
-        'Confluence',
       ],
     },
   ]

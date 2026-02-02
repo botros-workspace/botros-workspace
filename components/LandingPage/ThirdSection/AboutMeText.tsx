@@ -84,9 +84,8 @@ const AboutMeText: FunctionComponent<Props> = ({ setSelectedIndex }) => {
             opacity={0}
             ref={(text: any) => textRef.current.push(text)}
           >
-            I am a passionate, ambitious and hardworking developer, always
-            trying to learn and improve myself. Furthermore, I consider myself a
-            Team Player and creative in my approach to solve problems.
+            I’m a Senior Frontend Engineer with 8+ years of experience building
+            and scaling web and mobile applications using React and TypeScript.
           </Text>
         </Box>
         <Box overflow={'hidden'}>
@@ -98,10 +97,9 @@ const AboutMeText: FunctionComponent<Props> = ({ setSelectedIndex }) => {
             opacity={0}
             ref={(text: any) => textRef.current.push(text)}
           >
-            A key strength of mine is communication; building strong
-            relationship with people in order to deliver the best results. For
-            the last 8 years I have been developing my skills by learning the
-            coding standards and concepts, regardless of the language itself.
+            I specialize in owning frontend systems end-to-end — from
+            architecture and implementation to performance optimization,
+            testing, and production delivery.
           </Text>
         </Box>
         <Box overflow={'hidden'}>
@@ -113,10 +111,23 @@ const AboutMeText: FunctionComponent<Props> = ({ setSelectedIndex }) => {
             opacity={0}
             ref={(text: any) => textRef.current.push(text)}
           >
-            I worked on different projects using different programming languages
-            and frameworks, alone and in teams, in which I have learned how to
-            collaborate on code, be consistent in my style of coding and how to
-            maintain a code base of a project.
+            I’ve worked in startup and product-driven environments,
+            collaborating directly with founders, designers, and backend
+            engineers to ship production-ready features under tight timelines.
+          </Text>
+        </Box>
+        <Box overflow={'hidden'}>
+          <Text
+            fontSize={18}
+            fontWeight={500}
+            color={'white'}
+            mt={4}
+            opacity={0}
+            ref={(text: any) => textRef.current.push(text)}
+          >
+            I care about clean architecture, maintainability, and performance,
+            and I enjoy mentoring developers and raising frontend standards
+            within teams.
           </Text>
         </Box>
       </Box>

@@ -12,8 +12,14 @@ import ContentContainer from './ ContentContainer'
 import { AboutMeIndexTypes } from '../../../shared/enums/about-me-index-types.enum'
 import { scroller } from 'react-scroll'
 import LightSwitcherContainer from './LightSwitcherContainer'
-
-const AboutMeMainContainer: FunctionComponent = () => {
+import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
+import { NavigationArrow } from '../../shared/NavigationArrow'
+type Props = {
+  setCurrentSection: (value: SectionsTypes) => void
+}
+const AboutMeMainContainer: FunctionComponent<Props> = ({
+  setCurrentSection,
+}) => {
   const [selectedIndex, setSelectedIndex] = useState<AboutMeIndexTypes>()
   const [isLightOn, setIsLightOn] = useState(false)
   const [didMount, setDidMount] = useState(false)
@@ -109,6 +115,15 @@ const AboutMeMainContainer: FunctionComponent = () => {
   }, [])
   return (
     <Box bg={'#121212'}>
+      <NavigationArrow
+        direction='left'
+        onClick={() => setCurrentSection(SectionsTypes.SECOND_SECTIONS)}
+      />
+
+      <NavigationArrow
+        direction='right'
+        onClick={() => setCurrentSection(SectionsTypes.FOURTH_SECTIONS)}
+      />
       <Box bg={'#121212'} pos={'fixed'} h={'100%'} w={'100%'} />
 
       <Flex
@@ -141,7 +156,7 @@ const AboutMeMainContainer: FunctionComponent = () => {
             h={'80%'}
             mt={16}
             overflow={{ base: 'visible', lg: 'scroll', xl: 'visible' }}
-            zIndex={999999}
+            zIndex={999}
             pb={{ base: 0, lg: 28 }}
           >
             <IndexContainer

@@ -5,11 +5,10 @@ import React, {
   useState,
 } from 'react'
 import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import SkillsMainContainer from '../SecondSection'
 import AboutMeMainContainer from '../ThirdSection/AboutMeMainContainer'
 import ContactMeMainContainer from '../FourthSection'
-import { gsap } from 'gsap'
 import FirstSectionContainer from '../FirstSection/FirstSectionContainer'
 import UpperNavigator from './UpperNavigator'
 
@@ -131,16 +130,17 @@ const MainLayer: FunctionComponent = () => {
       {currentSection === SectionsTypes.FIRST_SECTIONS && (
         <FirstSectionContainer
           setContainerToFourthSection={setContainerToFourthSection}
+          setCurrentSection={setCurrentSection}
         />
       )}
       {currentSection === SectionsTypes.SECOND_SECTIONS && (
-        <SkillsMainContainer />
+        <SkillsMainContainer setCurrentSection={setCurrentSection} />
       )}
       {currentSection === SectionsTypes.THIRD_SECTIONS && (
-        <AboutMeMainContainer />
+        <AboutMeMainContainer setCurrentSection={setCurrentSection} />
       )}
       {currentSection === SectionsTypes.FOURTH_SECTIONS && (
-        <ContactMeMainContainer />
+        <ContactMeMainContainer setCurrentSection={setCurrentSection} />
       )}
     </Box>
   )

@@ -108,7 +108,7 @@ const SkillsGallery: FunctionComponent = () => {
       h={{ base: '50%', lg: '55%' }}
       m={'auto'}
       overflow={'scroll'}
-      mt={{ base: '10%', sm: '-10%', md: '10%', lg: '-10%', xl: '4%' }}
+      mt={{ base: '35%', sm: '0%', md: '20%', lg: '0%', xl: '8%' }}
     >
       <SimpleGrid
         minChildWidth={{ base: '95px', md: '120px', lg: '130px' }}

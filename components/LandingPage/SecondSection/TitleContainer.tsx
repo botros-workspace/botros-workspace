@@ -1,7 +1,6 @@
 import { Box, Flex, Link, Text } from '@chakra-ui/react'
 import { gsap } from 'gsap'
 import React, { FunctionComponent, useEffect, useRef } from 'react'
-
 const TitleContainer: FunctionComponent = () => {
   const quateRef = useRef(null)
   const titleRef = useRef(null)
@@ -48,11 +47,17 @@ const TitleContainer: FunctionComponent = () => {
     return () => context.revert()
   }, [])
   return (
-    <Box w={'100%'} color={'white'} pt={12} h={{ base: '30%', lg: '45%' }}>
+    <Box
+      w={'100%'}
+      color={'white'}
+      pt={12}
+      h={{ base: '30%', lg: '45%' }}
+      fontSize={{ base: 12, md: 24 }}
+    >
       <Flex w={'100%'} justifyContent={'center'} overflow={'hidden'}>
         <Text
           fontFamily={'monospace'}
-          fontSize={{ base: 8, sm: 16, lg: 16 }}
+          fontSize={{ base: 10, sm: 16, lg: 16 }}
           ref={quateRef}
           opacity={0}
         >
@@ -76,7 +81,7 @@ const TitleContainer: FunctionComponent = () => {
         w={'100%'}
         justifyContent={'center'}
         fontWeight={{ base: 700, md: 600 }}
-        fontSize={{ base: 10, md: 20 }}
+        fontSize={{ base: 14, md: 20 }}
         mt={2}
         flexDir={'row'}
         textAlign={'center'}
@@ -112,34 +117,64 @@ const TitleContainer: FunctionComponent = () => {
         alignItems={'center'}
       >
         <Box w={'95%'}>
-          <Box overflow={'hidden'}>
-            <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              Specialized in building customized complex web applications and
-              mobile applications with
+          <Flex w={'100%'} direction={'column'} gap={4}>
+            <Box
+              overflow={'hidden'}
+              w={{ base: '100%', lg: '80%' }}
+              textAlign={'center'}
+              mx={'auto'}
+            >
+              <Text
+                fontWeight={'semibold'}
+                ref={(text: any) => textRef.current.push(text)}
+                opacity={0}
+                fontSize={{ base: 12, md: 18, lg: 24 }}
+              >
+                Frontend-focused engineer with 8+ years of experience building
+                scalable web and mobile applications.
+              </Text>
             </Box>
-          </Box>
-          <Box overflow={'hidden'}>
-            <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              React, React Native, Typescript, animations and
-              interactive/responsive layouts.
+            <Box
+              overflow={'hidden'}
+              w={{ base: '100%', lg: '70%' }}
+              textAlign={'center'}
+              mx={'auto'}
+            >
+              <Text
+                fontWeight={'semibold'}
+                ref={(text: any) => textRef.current.push(text)}
+                opacity={0}
+                fontSize={{ base: 12, md: 18, lg: 24 }}
+              >
+                Specialized in React, TypeScript, Next.js, and React Native,
+                with a strong focus on performance, maintainable architecture,
+                and responsive user interfaces.
+              </Text>
             </Box>
-          </Box>
-          <Box overflow={'hidden'}>
-            <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              I have also full-stackdeveloper experience with one of the most
+            <Box
+              overflow={'hidden'}
+              w={{ base: '100%', lg: '70%' }}
+              textAlign={'center'}
+              mx={'auto'}
+            >
+              <Text
+                fontWeight={'semibold'}
+                ref={(text: any) => textRef.current.push(text)}
+                opacity={0}
+                fontSize={{ base: 12, md: 18, lg: 24 }}
+              >
+                Experienced in collaborating with founders, designers, and
+                backend engineers to ship production-ready products under tight
+                timelines.
+              </Text>
             </Box>
-          </Box>
-          <Box overflow={'hidden'}>
-            <Box ref={(text: any) => textRef.current.push(text)} opacity={0}>
-              reliable Frameworks - Python Django API
-            </Box>
-          </Box>
+          </Flex>
 
           <Box
             w={'100%'}
             fontWeight={{ base: 700, md: 600 }}
-            fontSize={{ base: 10, md: 20 }}
-            mt={2}
+            fontSize={{ base: 14, md: 20 }}
+            mt={4}
             display={'flex'}
             gap={1}
             alignItems={'center'}

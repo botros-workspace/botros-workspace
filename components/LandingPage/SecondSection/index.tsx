@@ -7,11 +7,18 @@ import React, {
   useState,
 } from 'react'
 import { gsap } from 'gsap'
-import { Box, Image } from '@chakra-ui/react'
+import { Box, Flex, Image } from '@chakra-ui/react'
 import TitleContainer from './TitleContainer'
 import SkillsGallery from './SkillsGallery'
-
-const SkillsMainContainer: FunctionComponent = () => {
+import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
+import { NavigationArrow } from '../../shared/NavigationArrow'
+type Props = {
+  setCurrentSection: (value: SectionsTypes) => void
+}
+const SkillsMainContainer: FunctionComponent<Props> = ({
+  setCurrentSection,
+}) => {
   const backgroundRef = useRef<any>([])
   const timelineRef = useRef(gsap.timeline())
 
@@ -37,20 +44,18 @@ const SkillsMainContainer: FunctionComponent = () => {
       bg={'#121212'}
     >
       <Box w={'100%'} h={'100%'}>
+        <NavigationArrow
+          direction='left'
+          onClick={() => setCurrentSection(SectionsTypes.FIRST_SECTIONS)}
+        />
+
+        <NavigationArrow
+          direction='right'
+          onClick={() => setCurrentSection(SectionsTypes.THIRD_SECTIONS)}
+        />
+
         <TitleContainer />
         <SkillsGallery />
-        <Image
-          src='./skillsBanner.webp'
-          alt=''
-          pos={'absolute'}
-          w={'100%'}
-          h={'100%'}
-          bottom={0}
-          left={0}
-          objectFit={'contain'}
-          opacity={0}
-          ref={backgroundRef}
-        />
       </Box>
     </Box>
   )

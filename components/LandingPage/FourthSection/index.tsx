@@ -4,8 +4,13 @@ import { gsap } from 'gsap'
 import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
 import LeftCardContainer from './LeftCardContainer'
 import RightCardContainer from './RightCardContainer'
-
-const ContactMeMainContainer: FunctionComponent = () => {
+import { NavigationArrow } from '../../shared/NavigationArrow'
+type Props = {
+  setCurrentSection: (value: SectionsTypes) => void
+}
+const ContactMeMainContainer: FunctionComponent<Props> = ({
+  setCurrentSection,
+}) => {
   const leftcardContainerRef = useRef(null)
   const rightcardContainerRef = useRef(null)
   const timelineRef = useRef(gsap.timeline())
@@ -316,6 +321,10 @@ const ContactMeMainContainer: FunctionComponent = () => {
       pos={'absolute'}
       overflow={'hidden'}
     >
+      <NavigationArrow
+        direction='left'
+        onClick={() => setCurrentSection(SectionsTypes.THIRD_SECTIONS)}
+      />
       <Box
         w={'100%'}
         h={'100vh'}
@@ -357,6 +366,7 @@ const ContactMeMainContainer: FunctionComponent = () => {
           justifyContent={'center'}
           alignItems={'center'}
           bg={'white'}
+          overflow={'hidden'}
         >
           <RightCardContainer />
         </Box>

@@ -1,53 +1,27 @@
-import { Box, Flex, Text, Image, Button } from '@chakra-ui/react'
-import React, {
-  FunctionComponent,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
-import HeroCover from './HeroCover'
+import { Box, Flex, Text, Button } from '@chakra-ui/react'
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import ProductsContainer from './ProductsContainer'
+import { SectionsTypes } from '../../../shared/enums/sections-types.enum'
+import { FaAngleRight } from 'react-icons/fa6'
+import { NavigationArrow } from '../../shared/NavigationArrow'
+
 type Props = {
   setContainerToFourthSection: () => void
+  setCurrentSection: (value: SectionsTypes) => void
 }
 const FirstSectionContainer: FunctionComponent<Props> = ({
   setContainerToFourthSection,
+  setCurrentSection,
 }) => {
   const creativeTextRef = useRef(null)
   const frontendTextRef = useRef(null)
   const developerTextRef = useRef(null)
   const contactButtonRef = useRef(null)
-  const textRef = useRef<any>([])
-  const [heroCoverSmallScale, setSHeroCoverSmallScale] = useState<number>(740)
-  const [heroCoverBigScale, setSHeroCoverBigScale] = useState<number>(2000)
-  const [heroWidthScale, setHeroWidthScale] = useState(450)
-  const [isHeroVisible, setIsHeroVisible] = useState(false)
+  const contactButtonBackgroundRef = useRef(null)
+  const text1Ref = useRef<any>([])
+  const text2Ref = useRef<any>([])
   const timelineRef = useRef(gsap.timeline())
-  const [showProducts, setShowProducts] = useState(false)
 
-  const handleMouseEnter = useCallback(() => {
-    setShowProducts(false)
-    setSHeroCoverSmallScale(0)
-    setSHeroCoverBigScale(0)
-    setHeroWidthScale(0)
-  }, [])
-  const handleMouseLeave = useCallback(() => {
-    setShowProducts(true)
-    setSHeroCoverSmallScale(740)
-    setSHeroCoverBigScale(2000)
-    setHeroWidthScale(450)
-  }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsHeroVisible(true)
-    }, 1750)
-    setTimeout(() => {
-      handleMouseEnter()
-    }, 1751)
-  }, [handleMouseEnter])
   useEffect(() => {
     const context = gsap.context(() => {
       const tl = timelineRef.current
@@ -55,7 +29,7 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
       tl.to(creativeTextRef.current, {
         opacity: 1,
         duration: 0.7,
-        delay: 0.2,
+        delay: 0.05,
         ease: 'expo.inOut',
       })
         .fromTo(
@@ -99,7 +73,7 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
           '<'
         )
         .fromTo(
-          textRef.current,
+          [text1Ref.current, text2Ref.current],
           {
             transform: 'translateY(150%)',
             skewY: 5,
@@ -120,7 +94,7 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
             opacity: 0,
           },
           {
-            bottom: window.innerWidth < 992 ? -10 : -20,
+            bottom: window.innerWidth < 992 ? 70 : -20,
             opacity: 1,
             duration: 1.3,
             ease: 'expo.inOut',
@@ -131,16 +105,12 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
     return () => context.revert()
   }, [])
   return (
-    <Box bg={'#121212'} h={'100%'} w={'100%'}>
-      <Flex
-        w={'100vw'}
-        h={'100vh'}
-        bgImage={'./Hero.jpeg'}
-        backgroundRepeat={'no-repeat'}
-        backgroundSize={'contain'}
-        overflow={'hidden'}
-        pos={'absolute'}
-      >
+    <Box bg={'#121212'} h={'100%'} w={'100%'} pos={'relative'}>
+      <NavigationArrow
+        direction='right'
+        onClick={() => setCurrentSection(SectionsTypes.SECOND_SECTIONS)}
+      />
+      <Flex w={'100vw'} h={'100vh'} overflow={'hidden'} pos={'absolute'}>
         <Box
           w={'100vw'}
           h={'100vh'}
@@ -150,18 +120,7 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
           zIndex={2}
           bg={'rgba(0,0,0,0.3)'}
         />
-        <Image
-          src='./Hero.jpeg'
-          alt='Reflection'
-          className='reflection-image'
-          backgroundSize={'cover'}
-        />
-        <HeroCover
-          heroCoverBigScale={heroCoverBigScale}
-          heroCoverSmallScale={heroCoverSmallScale}
-          heroWidthScale={heroWidthScale}
-          isHeroVisible={isHeroVisible}
-        />
+
         <Flex
           w={'100%'}
           h={'100%'}
@@ -245,26 +204,29 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
               <Box
                 fontSize={{ base: 16, md: 24 }}
                 fontWeight={600}
-                mt={{ base: '25%', xl: 12 }}
-                w={'100%'}
-                textColor={'whitesmoke'}
+                pt={{ base: '12%', xl: 12 }}
                 fontFamily={'Geneva, sans-serif'}
                 textAlign={'right'}
+                pr={{ base: 6, md: 8 }}
+                w={{ base: '90%', sm: '80%', md: '90%' }}
+                float={'right'}
+                textColor={'whitesmoke'}
+                overflow={'hidden'}
               >
-                <Box
-                  overflow={'hidden'}
-                  pr={{ base: 6, md: 8 }}
-                  w={{ base: '90%', sm: '80%', md: '90%' }}
-                  float={'right'}
+                <Text w={'100%'} ref={text1Ref} opacity={0}>
+                  Senior Frontend Engineer specializing in React and TypeScript,
+                  building scalable, high-performance SaaS and startup products.
+                </Text>
+                <Text
+                  w={'100%'}
+                  ref={text2Ref}
+                  opacity={0}
+                  mt={{ base: 3, md: 8 }}
                 >
-                  <Box ref={textRef} opacity={0} textIndent={'4em'}>
-                    Are you in search of a skilled developer who can bring your
-                    web vision to life? Look no further!
-                    <br /> I am a dedicated React and TypeScript developer with
-                    a passion for creating seamless, responsive, animated and
-                    visually stunning websites.
-                  </Box>
-                </Box>
+                  I design and own frontend systems end-to-end — from
+                  architecture and implementation to performance optimization
+                  and production delivery.
+                </Text>
               </Box>
 
               <Box
@@ -275,32 +237,45 @@ const FirstSectionContainer: FunctionComponent<Props> = ({
               >
                 <Button
                   ref={contactButtonRef}
-                  opacity={0}
-                  cursor={'pointer'}
-                  variant={'outline'}
-                  borderRadius={'full'}
-                  float={'right'}
+                  position='relative'
+                  overflow='hidden'
+                  cursor='pointer'
+                  variant='outline'
+                  borderRadius='full'
+                  float='right'
                   mr={{ base: 6, md: 8 }}
                   w={{ base: 44, md: 72 }}
                   fontSize={{ base: 20, md: 32 }}
                   onClick={setContainerToFourthSection}
-                  px={-1}
                   py={{ base: 2, md: 6 }}
-                  textAlign={'center'}
-                  color={'white'}
+                  textAlign='center'
+                  color='white'
+                  fontWeight={500}
+                  zIndex={4}
+                  bg='transparent'
+                  _before={{
+                    content: '""',
+                    position: 'absolute',
+                    inset: 0,
+                    bg: 'white',
+                    borderRadius: 'full',
+                    transform: 'translateX(-100%)',
+                    transition: 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
+                    willChange: 'transform',
+                    zIndex: 0,
+                  }}
                   _hover={{
                     color: '#121212',
-                    bg: 'gray.300',
+                    _before: {
+                      transform: 'translateX(0)',
+                    },
                   }}
-                  fontWeight={500}
-                  onMouseEnter={handleMouseLeave}
-                  onMouseLeave={handleMouseEnter}
-                  zIndex={4}
                 >
-                  CONTACT ME
+                  <Flex position='relative' zIndex={1}>
+                    CONTACT ME
+                  </Flex>
                 </Button>
               </Box>
-              <ProductsContainer show={showProducts} />
             </Box>
           </Flex>
         </Flex>

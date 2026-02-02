@@ -17,13 +17,19 @@ const IndexSingleRow: FunctionComponent<Props> = ({
     <Show above='lg'>
       <Flex
         w={'100%'}
-        pl={{ base: '15%', sm: '30%', lg: '20%' }}
         mt={6}
         h={8}
         flexDir={'row'}
         gap={4}
         onClick={() => onClick()}
-        textAlign={'center'}
+        alignSelf={'left'}
+        onMouseEnter={() => {
+          setIsHovered(true)
+        }}
+        onMouseLeave={() => {
+          setIsHovered(false)
+        }}
+        cursor={'pointer'}
       >
         <Box
           h={0.5}
@@ -32,26 +38,12 @@ const IndexSingleRow: FunctionComponent<Props> = ({
           bg={isHovered || isSelected ? '#C59A27' : 'white'}
           transition='all .1s ease-in-out'
           mt={3}
-          cursor={'pointer'}
-          onMouseEnter={() => {
-            setIsHovered(true)
-          }}
-          onMouseLeave={() => {
-            setIsHovered(false)
-          }}
         ></Box>
 
         <Text
           opacity={isHovered || isSelected ? 1 : 0.5}
           fontSize={isHovered || isSelected ? 14 : 13}
           fontWeight={isHovered || isSelected ? 500 : 300}
-          cursor={'pointer'}
-          onMouseEnter={() => {
-            setIsHovered(true)
-          }}
-          onMouseLeave={() => {
-            setIsHovered(false)
-          }}
         >
           {title}
         </Text>

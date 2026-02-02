@@ -144,7 +144,7 @@ const UpperNavigator: FunctionComponent<Props> = ({
       justifyContent={'center'}
       gap={4}
       alignItems={'center'}
-      mt={1}
+      mt={4}
       zIndex={9999}
     >
       <Box

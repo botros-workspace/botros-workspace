@@ -128,7 +128,7 @@ const IndexContainer: FunctionComponent<Props> = ({
           opacity={0}
           ref={(text: any) => textsRef.current.push(text)}
         >
-          Senior Frontend developer
+          Senior Frontend Engineer
         </Text>
       </Box>
       <Box
@@ -145,13 +145,13 @@ const IndexContainer: FunctionComponent<Props> = ({
           opacity={0}
           ref={(text: any) => textsRef.current.push(text)}
         >
-          I build high quality, pixel perfect product that meet your exact
-          requirements
+          I build and own scalable, high-performance frontend systems for SaaS
+          and startup products.
         </Text>
       </Box>
 
       <Box
-        w={'100%'}
+        w={'50%'}
         ref={(text: any) => indexesRef.current.push(text)}
         opacity={0}
       >
@@ -165,7 +165,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         />
       </Box>
       <Box
-        w={'100%'}
+        w={'50%'}
         ref={(text: any) => indexesRef.current.push(text)}
         opacity={0}
       >
@@ -179,7 +179,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         />
       </Box>
       <Box
-        w={'100%'}
+        w={'50%'}
         ref={(text: any) => indexesRef.current.push(text)}
         opacity={0}
       >
@@ -193,7 +193,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         />
       </Box>
       <Box
-        w={'100%'}
+        w={'50%'}
         ref={(text: any) => indexesRef.current.push(text)}
         opacity={0}
       >
@@ -207,7 +207,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         />
       </Box>
       <Box
-        w={'100%'}
+        w={'50%'}
         ref={(text: any) => indexesRef.current.push(text)}
         opacity={0}
       >
@@ -221,7 +221,7 @@ const IndexContainer: FunctionComponent<Props> = ({
         />
       </Box>
       <Box
-        w={'100%'}
+        w={'50%'}
         ref={(text: any) => indexesRef.current.push(text)}
         opacity={0}
       >
@@ -242,37 +242,6 @@ const IndexContainer: FunctionComponent<Props> = ({
         pl={{ base: '15%', sm: '30%', lg: '20%' }}
         gap={5}
       >
-        {/* <Box
-          cursor={'pointer'}
-          _hover={{
-            color: '#C59A27',
-          }}
-          overflow={'hidden'}
-        >
-          <Box ref={(text: any) => contactsRef.current.push(text)} opacity={0}>
-            <ImGithub />
-          </Box>
-        </Box> */}
-        {/* <Link
-          href={'https://www.linkedin.com/in/david-botros-967ba4211/'}
-          target='_blank'
-        >
-          <Box
-            cursor={'pointer'}
-            _hover={{
-              color: '#C59A27',
-              scale: 1.1,
-            }}
-            overflow={'hidden'}
-          >
-            <Box
-              ref={(text: any) => contactsRef.current.push(text)}
-              opacity={0}
-            >
-              <ImLinkedin />
-            </Box>
-          </Box>
-        </Link> */}
         <Box
           cursor={'pointer'}
           _hover={{
@@ -282,7 +251,7 @@ const IndexContainer: FunctionComponent<Props> = ({
           overflow={'hidden'}
           onClick={() => {
             const aTag = document.createElement('a')
-            aTag.href = '/CV.pdf'
+            aTag.href = '/DavidBotros_CV.pdf'
             aTag.setAttribute('download', 'DavidBotrosCV')
             aTag.click()
             aTag.remove()
